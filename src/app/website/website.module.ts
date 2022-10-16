@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { QuicklinkModule } from 'ngx-quicklink';
 import { WebsiteRoutingModule } from './website-routing.module';
+
 import { NavComponent } from './components/nav/nav.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -33,7 +34,8 @@ import { ProductsComponent } from './components/products/products.component';
   ],
   imports: [
     CommonModule,
-    WebsiteRoutingModule
+    WebsiteRoutingModule,
+    QuicklinkModule
   ]
 })
 export class WebsiteModule { }

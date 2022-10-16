@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { QuicklinkModule } from 'ngx-quicklink';
 import { AdminRoutingModule } from './admin-routing.module';
+
 import { UsersComponent } from './pages/users/users.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { OrdersComponent } from './pages/orders/orders.component';
@@ -21,7 +22,8 @@ import { LayoutComponent } from './components/layout/layout.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    QuicklinkModule
   ]
 })
 export class AdminModule { }
