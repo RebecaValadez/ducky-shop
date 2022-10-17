@@ -15,6 +15,7 @@ import { BuyComponent } from './pages/buy/buy.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductsComponent } from './components/products/products.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ProductsComponent } from './components/products/products.component';
     BuyComponent,
     CategoryComponent,
     ProductComponent,
-    ProductsComponent
+    ProductsComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,

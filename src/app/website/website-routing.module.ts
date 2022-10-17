@@ -42,18 +42,18 @@ const routes: Routes = [
         component: MycartComponent,
       },
       {
-        path: 'login',
-        component: LoginComponent,
-      },
-      {
-        path: 'register',
-        component: RegisterComponent,
-      },
-      {
         path: 'order',
         component: OrderDetailComponent,
       }
     ]
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   },
 ];
 
