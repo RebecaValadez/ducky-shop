@@ -14,11 +14,11 @@ export class ProductsComponent implements OnInit {
   }
 
   createProduct() {
-    this.router.navigate(['/admin/create-product']);
+    this.router.navigate(['/admin/product']);
   }
 
   editProduct() {
-    this.router.navigate(['/admin/edit-product']);
+    this.router.navigate(['/admin/product']);
   }
 
 }

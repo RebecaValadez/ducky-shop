@@ -7,12 +7,9 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { UsersComponent } from './pages/users/users.component';
-import { CreateProductComponent } from './pages/create-product/create-product.component';
-import { EditProductComponent } from './pages/edit-product/edit-product.component';
-import { EditCategoryComponent } from './pages/edit-category/edit-category.component';
-import { EditUserComponent } from './pages/edit-user/edit-user.component';
-import { CreateUserComponent } from './pages/create-user/create-user.component';
-import { CreateCategoryComponent } from './pages/create-category/create-category.component';
+import { ProductComponent } from './pages/product/product.component';
+import { UserComponent } from './pages/user/user.component';
+import { CategoryComponent } from './pages/category/category.component';
 
 const routes: Routes = [
   {
@@ -33,24 +30,16 @@ const routes: Routes = [
         component: ProductsComponent
       },
       {
-        path: 'create-product',
-        component: CreateProductComponent
-      },
-      {
-        path: 'edit-product',
-        component: EditProductComponent
+        path: 'product',
+        component: ProductComponent
       },
       {
         path: 'categories',
         component: CategoriesComponent
       },
       {
-        path: 'create-category',
-        component: CreateCategoryComponent
-      },
-      {
-        path: 'edit-category',
-        component: EditCategoryComponent
+        path: 'category',
+        component: CategoryComponent
       },
       {
         path: 'orders',
@@ -61,12 +50,8 @@ const routes: Routes = [
         component: UsersComponent
       },
       {
-        path: 'create-user',
-        component: CreateUserComponent
-      },
-      {
-        path: 'edit-user',
-        component: EditUserComponent
+        path: 'user',
+        component: UserComponent
       }
     ]
   }

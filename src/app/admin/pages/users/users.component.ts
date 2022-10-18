@@ -15,10 +15,10 @@ export class UsersComponent implements OnInit {
   }
 
   createUser() {
-    this.router.navigate(['/admin/create-user']);
+    this.router.navigate(['/admin/user']);
   }
 
   editUser() {
-    this.router.navigate(['/admin/edit-user']);
+    this.router.navigate(['/admin/user']);
   }
 }

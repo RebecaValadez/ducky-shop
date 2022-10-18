@@ -15,11 +15,11 @@ export class CategoriesComponent implements OnInit {
   }
 
   createCategory() {
-    this.router.navigate(['/admin/create-category']);
+    this.router.navigate(['/admin/category']);
   }
 
   editCategory() {
-    this.router.navigate(['/admin/edit-category']);
+    this.router.navigate(['/admin/category']);
   }
 
 }
