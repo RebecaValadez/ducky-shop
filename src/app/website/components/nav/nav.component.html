@@ -1,4 +1,65 @@
-<div>
-  <header></header>
-  <div class="barra-amarilla"></div>
+<div class="nav">
+  <div class="nav-left">
+    <a href="" id="logo-link">
+      <img src="assets/img/logo.png" alt="" class="logo-mini">
+    </a>
+  </div>
+
+  <div class="nav-center" id="centro">
+    <div class="nav">
+      <!--dropdown menu-->
+      <div class="nav-left">
+        <div class="dropdown-collection">
+          <button class="dropdown-button" aria-haspopup="listbox" aria-labelledby="dropdown-label" (click)="toggleDropdown()" (clickOutside)="dropdownOpen = false">
+              <span id="dropdown-label">Categoría</span><span class="dropdown-value">{{currentValue}}</span>
+          </button>
+          <ul class="dropdown-list" role="listbox" aria-expanded="false" [ngClass]="{'dropdown-open' : dropdownOpen}">
+              <li *ngFor="let o of options"
+                  [ngClass]="{'selected' : currentValue === o}"
+                  tabindex="0"
+                  (click)="select(o)"
+                  role="option"
+                  [innerHTML]="o"></li>
+          </ul>
+        </div>
+      </div>
+      <!--dropdown menu-->
+
+      <div class="nav-center">
+        <input type="text" class="search">
+      </div>
+
+      <div class="nav-right">
+        <a href="" id="submit">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="34" height="34" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <circle cx="10" cy="10" r="7"></circle>
+            <line x1="21" y1="21" x2="15" y2="15"></line>
+         </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-right">
+    <a href="" class="tool-button">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <circle cx="12" cy="7" r="4" />
+        <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+      </svg>
+      <span>Usuario</span>
+    </a>
+    <a href="" class="tool-button">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="6" cy="19" r="2"></circle>
+        <circle cx="17" cy="19" r="2"></circle>
+        <path d="M17 17h-11v-14h-2"></path>
+        <path d="M6 5l14 1l-1 7h-13"></path>
+     </svg>
+      <span>Carrito</span>
+    </a>
+  </div>
 </div>
+<div class="barra-amarilla"></div>
