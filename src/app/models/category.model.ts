@@ -1,7 +1,6 @@
 export interface Category {
   id: number;
   name: string;
-  createdAt: Date;
-  updatedAt: Date;
-  token: string;
+  created_at: Date;
+  updated_at: Date;
 }

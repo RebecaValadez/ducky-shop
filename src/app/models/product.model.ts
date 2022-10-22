@@ -3,10 +3,9 @@ export interface Product {
   name: string;
   price: number;
   description: string;
-  categoryId: number;
-  categoryName: string;
+  category_id: number;
+  category_name: string;
   stock: number;
-  createdAt: Date;
-  updatedAt: Date;
-  token: string;
+  created_at: Date;
+  updated_at: Date;
 }

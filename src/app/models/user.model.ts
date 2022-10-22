@@ -3,15 +3,14 @@ export interface User {
   username: string;
   email: string;
   phone: string;
-  fullName: string;
+  full_name: string;
   password: string;
-  addressLine1: string;
-  addressLine2: string;
-  addressCity: string;
-  addressState: string;
-  addressCountry: string;
-  addressCp: number;
-  createdAt: Date;
-  updatedAt: Date;
-  token: string;
+  address_line_1: string;
+  address_line_2: string;
+  address_city: string;
+  address_state: string;
+  address_country: string;
+  address_cp: number;
+  created_at: Date;
+  updated_at: Date;
 }

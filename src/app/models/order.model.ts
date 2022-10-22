@@ -1,8 +1,7 @@
 export interface Order {
-  orderNumber: number;
-  productId: number;
+  order_number: number;
+  product_id: number;
   quantity: number;
-  totalPrice: number;
+  total_price: number;
   status: boolean;
-  token: string;
 }

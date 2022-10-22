@@ -7,7 +7,7 @@ import { Category } from './../models/category.model';
 })
 export class CategoriesService {
 
-  apiUrl = '';
+  apiUrl = 'http://ecommerceapi.x10.mx/api';
 
   constructor(private http: HttpClient) { }
 

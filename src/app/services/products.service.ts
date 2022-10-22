@@ -7,7 +7,7 @@ import { Product } from './../models/product.model';
 })
 export class ProductsService {
 
-  apiUrl = '';
+  apiUrl = 'http://ecommerceapi.x10.mx/api';
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +16,11 @@ export class ProductsService {
   }
 
   getAllProductsByCategory(categoryId: number) {
-    return this.http.get<Product[]>(`${this.apiUrl}/products/${categoryId}`);
+    return this.http.get<Product[]>(`${this.apiUrl}/products-by-category/${categoryId}`);
+  }
+
+  getProductsOnStock() {
+    return this.http.get<Product[]>(`${this.apiUrl}/products-on-stock`);
   }
 
   getProduct(id: number) {
