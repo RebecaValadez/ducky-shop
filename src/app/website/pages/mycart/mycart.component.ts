@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-mycart',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mycart.component.scss']
 })
 export class MycartComponent implements OnInit {
+  productos: Array<Product> = [];
 
   constructor() { }
 
   ngOnInit(): void {
+    this.productos.push({
+      id: 1,
+      name: "string",
+      price: 999999,
+      description: "string",
+      category_id: 1,
+      category_name: "Alimentos",
+      stock: 999999,
+      created_at: new Date(),
+      updated_at: new Date()
+    });
   }
 
 }
