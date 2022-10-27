@@ -9,7 +9,7 @@ import { CategoriesService } from './../../../services/categories.service';
 })
 export class NavComponent implements OnInit {
 
-  categories: Category[] = [];
+
 
   constructor(private elem: ElementRef, private categoriesService: CategoriesService) { }
 
@@ -20,7 +20,7 @@ export class NavComponent implements OnInit {
   //Elementos para el dropdown---------------------------------------------------------
 
   options: Array<String> = ["Casa", "Deportes", "Electrónicos"];
-
+  public categories: Category[] = [];
   public currentValue: any;
   public dropdownOpen: boolean = false;
   public get dropdownElement(): Element { return this.elem.nativeElement.querySelector('.dropdown-list') }
@@ -49,9 +49,8 @@ export class NavComponent implements OnInit {
 
   getCategories() {
     this.categoriesService.getAllCategories()
-      .subscribe((data) => {
-        this.categories = data;
-        console.log(data);
+      .subscribe((data:any) => {
+        this.categories = data.data;
       });
   }
 }
