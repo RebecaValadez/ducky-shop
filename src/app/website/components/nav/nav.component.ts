@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { Category } from './../../../models/category.model';
+import { CategoriesService } from './../../../services/categories.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,17 +9,21 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private elem: ElementRef) { }
+  categories: Category[] = [];
+
+  constructor(private elem: ElementRef, private categoriesService: CategoriesService) { }
 
   ngOnInit(): void {
+    this.getCategories();
   }
 
   //Elementos para el dropdown---------------------------------------------------------
+
   options: Array<String> = ["Casa", "Deportes", "Electrónicos"];
-  
-  public currentValue:any;
+
+  public currentValue: any;
   public dropdownOpen: boolean = false;
-  public get dropdownElement(): Element {return this.elem.nativeElement.querySelector('.dropdown-list')}
+  public get dropdownElement(): Element { return this.elem.nativeElement.querySelector('.dropdown-list') }
   private currentIndex = -1;
 
   closeDropdown() {
@@ -27,11 +33,11 @@ export class NavComponent implements OnInit {
   }
 
   selectByIndex(i: number) {
-    let value = this.options[i];
+    let value = this.categories[i];
     this.select(value);
   }
 
-  select(value:any) {
+  select(value: any) {
     this.currentValue = value;
     this.closeDropdown();
   }
@@ -39,5 +45,13 @@ export class NavComponent implements OnInit {
   toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
     this.dropdownElement.setAttribute('aria-expanded', this.dropdownOpen ? "true" : "false");
+  }
+
+  getCategories() {
+    this.categoriesService.getAllCategories()
+      .subscribe((data) => {
+        this.categories = data;
+        console.log(data);
+      });
   }
 }
