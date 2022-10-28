@@ -3,13 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LayoutComponent } from './components/layout/layout.component';
 import { HomeComponent } from './pages/home/home.component';
-import { CategoriesComponent } from './pages/categories/categories.component';
 import { OrdersComponent } from './pages/orders/orders.component';
-import { ProductsComponent } from './pages/products/products.component';
-import { UsersComponent } from './pages/users/users.component';
-import { ProductComponent } from './pages/product/product.component';
-import { UserComponent } from './pages/user/user.component';
-import { CategoryComponent } from './pages/category/category.component';
 
 const routes: Routes = [
   {
@@ -26,33 +20,21 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
-        path: 'products',
-        component: ProductsComponent
-      },
-      {
-        path: 'product',
-        component: ProductComponent
-      },
-      {
         path: 'categories',
-        component: CategoriesComponent
+        loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule)
       },
       {
-        path: 'category',
-        component: CategoryComponent
+        path: 'products',
+        loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
+      },
+      {
+        path: 'users',
+        loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
       },
       {
         path: 'orders',
         component: OrdersComponent
       },
-      {
-        path: 'users',
-        component: UsersComponent
-      },
-      {
-        path: 'user',
-        component: UserComponent
-      }
     ]
   }
 ];

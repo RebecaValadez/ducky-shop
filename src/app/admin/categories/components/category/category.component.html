@@ -1,0 +1,15 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+  <label>Nombre</label>
+  <input placeholder="Nombre" formControlName="name" type="text" required>
+
+  <div class="messages" [class.active]="nameField!.touched && nameField!.invalid">
+    <p>
+      <strong *ngIf="nameField!.touched && nameField!.hasError('required')">Este campo es requerido</strong>
+    </p>
+  </div>
+
+  <button type="submit">
+    <span *ngIf="!category_id">Crear categoría</span>
+    <span *ngIf="category_id">Editar categoría</span>
+  </button>
+</form>

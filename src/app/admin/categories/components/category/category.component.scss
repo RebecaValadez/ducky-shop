@@ -1,0 +1,7 @@
+.messages {
+  opacity: 0;
+  transition: all .5s ease-in;
+  &.active {
+    opacity: 1;
+  }
+}

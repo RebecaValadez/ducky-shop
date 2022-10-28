@@ -16,11 +16,11 @@ export class CategoriesService {
   }
 
   getCategory(id: number) {
-    return this.http.get<Category>(`${this.apiUrl}/categories/${id}`);
+    return this.http.get<any>(`${this.apiUrl}/categories/${id}`);
   }
 
   createCategory(data: Partial<Category>) {
-    return this.http.post<Category>(`${this.apiUrl}/categories/`, data);
+    return this.http.post<Category>(`${this.apiUrl}/categories`, data);
   }
 
   updateCategory(id: number, data: Partial<Category>) {

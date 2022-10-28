@@ -18,8 +18,6 @@ export class NavComponent implements OnInit {
   }
 
   //Elementos para el dropdown---------------------------------------------------------
-
-  options: Array<String> = ["Casa", "Deportes", "Electrónicos"];
   public categories: Category[] = [];
   public currentValue: any;
   public dropdownOpen: boolean = false;

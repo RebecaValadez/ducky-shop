@@ -12,19 +12,19 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   getAllProducts() {
-    return this.http.get<Product[]>(`${this.apiUrl}/products`);
+    return this.http.get<any>(`${this.apiUrl}/products`);
   }
 
   getAllProductsByCategory(categoryId: number) {
-    return this.http.get<Product[]>(`${this.apiUrl}/products-by-category/${categoryId}`);
+    return this.http.get<any>(`${this.apiUrl}/products-by-category/${categoryId}`);
   }
 
   getProductsOnStock() {
-    return this.http.get<Product[]>(`${this.apiUrl}/products-on-stock`);
+    return this.http.get<any>(`${this.apiUrl}/products-on-stock`);
   }
 
   getProduct(id: number) {
-    return this.http.get<Product>(`${this.apiUrl}/products/${id}`);
+    return this.http.get<any>(`${this.apiUrl}/products/${id}`);
   }
 
   createProduct(data: Partial<Product>) {

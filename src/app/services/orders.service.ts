@@ -6,7 +6,7 @@ import { Order } from './../models/order.model';
   providedIn: 'root'
 })
 export class OrdersService {
-  
+
   apiUrl = 'http://ecommerceapi.x10.mx/api';
 
   constructor(private http: HttpClient) { }
@@ -15,8 +15,8 @@ export class OrdersService {
     //here we must give a token
     return this.http.post<Order>(`${this.apiUrl}/orders/${id}`);
    }
-  
-   createOrder(data: Partial<Order>) { 
+
+   createOrder(data: Partial<Order>) {
     return this.http.post<Order>(`${this.apiUrl}/orders/`, data);
    }
 }

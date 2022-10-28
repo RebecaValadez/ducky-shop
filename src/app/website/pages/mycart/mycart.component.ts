@@ -14,6 +14,7 @@ export class MycartComponent implements OnInit {
   ngOnInit(): void {
     this.productos.push({
       id: 1,
+      code: "string",
       name: "string",
       price: 999999,
       description: "string",

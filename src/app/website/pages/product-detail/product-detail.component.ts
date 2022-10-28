@@ -14,6 +14,7 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     this.producto = {
       id: 1,
+      code: "454546fs",
       name: "Laptop",
       price: 999999,
       description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde vel totam at ad sint adipisci qui porro optio, deleniti blanditiis voluptas ea, dolore repudiandae. Excepturi aliquid architecto quo aspernatur saepe!",

@@ -1,0 +1,79 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+  <div>
+    <label>Nombre</label>
+    <input placeholder="Nombre" formControlName="name" type="text" />
+
+    <div class="messages" [class.active]="nameField!.touched && nameField!.invalid">
+      <p>
+        <strong *ngIf="nameField!.touched && nameField!.hasError('required')">Este campo es requerido</strong>
+      </p>
+    </div>
+  </div>
+
+  <div>
+    <label>Categoría</label>
+    <select formControlName="category_id">
+      <option [value]="category.id" *ngFor="let category of categories">
+        {{ category.name }}
+      </option>
+    </select>
+
+    <div class="messages" [class.active]="categoryField!.touched && categoryField!.invalid">
+      <p>
+        <strong *ngIf="categoryField!.touched && categoryField!.hasError('required')">Este campo es requerido</strong>
+      </p>
+    </div>
+  </div>
+
+  <div>
+    <label>Código</label>
+    <input placeholder="Código" formControlName="code" type="text" />
+
+    <div class="messages" [class.active]="codeField!.touched && codeField!.invalid">
+      <p>
+        <strong *ngIf="codeField!.touched && codeField!.hasError('required')">Este campo es requerido</strong>
+      </p>
+    </div>
+  </div>
+
+  <div>
+    <label>Descripción</label>
+    <textarea
+      placeholder="Descripción..."
+      formControlName="description"
+    ></textarea>
+
+    <div class="messages" [class.active]="descriptionField!.touched && descriptionField!.invalid">
+      <p>
+        <strong *ngIf="descriptionField!.touched && descriptionField!.hasError('required')">Este campo es requerido</strong>
+      </p>
+    </div>
+  </div>
+
+  <div>
+    <label>Precio</label>
+    <input formControlName="price" type="number" step="1" />
+
+    <div class="messages" [class.active]="priceField!.touched && priceField!.invalid">
+      <p>
+        <strong *ngIf="priceField!.touched && priceField!.hasError('required')">Este campo es requerido</strong>
+      </p>
+    </div>
+  </div>
+
+  <div>
+    <label>Cantidad</label>
+    <input formControlName="stock" type="number" step="1" />
+
+    <div class="messages" [class.active]="stockField!.touched && stockField!.invalid">
+      <p>
+        <strong *ngIf="stockField!.touched && stockField!.hasError('required')">Este campo es requerido</strong>
+      </p>
+    </div>
+  </div>
+
+  <button type="submit">
+    <span *ngIf="!product_id">Crear producto</span>
+    <span *ngIf="product_id">Editar producto</span>
+  </button>
+</form>
