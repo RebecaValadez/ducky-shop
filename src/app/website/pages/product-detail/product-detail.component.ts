@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { switchMap } from 'rxjs/operators';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
+import { ProductsService } from '../../../services/products.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -8,22 +11,32 @@ import { Product } from 'src/app/models/product.model';
 })
 export class ProductDetailComponent implements OnInit {
   producto!: Product;
+  productId!: number;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private productsService: ProductsService) { }
 
   ngOnInit(): void {
-    this.producto = {
-      id: 1,
-      code: "454546fs",
-      name: "Laptop",
-      price: 999999,
-      description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde vel totam at ad sint adipisci qui porro optio, deleniti blanditiis voluptas ea, dolore repudiandae. Excepturi aliquid architecto quo aspernatur saepe!",
-      category_id: 1,
-      category_name: "Tecnologia",
-      stock: 999999,
-      created_at: new Date(),
-      updated_at: new Date()
-    }
+    this.route.params.subscribe((params: Params) => {
+      this.productId = params['id'];
+      if (this.productId) {
+        this.getProduct();
+      }
+    });
   }
 
+  private getProduct() {
+    this.productsService.getProduct(this.productId)
+      .subscribe(data => {
+        this.producto = data.data;
+        console.log(this.producto);
+      });
+  }
+
+  addToCart(){
+
+  }
+
+  buy(){
+    
+  }
 }
