@@ -1,1 +1,51 @@
-<p>register works!</p>
+<div class="container">
+    <div class="img">
+
+    </div>
+    <div class="login-content">
+        <form action=>
+            <img src="assets/img/logo.png">
+            <h2 class="title">Crear cuenta</h2>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <h4>Nombre</h4>
+                    <input type="text" class="input" required (focus)="addcl($event)" (blur)="remcl($event)">
+                </div>
+            </div>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fa fa-envelope"></i>
+                </div>
+                <div class="div">
+                    <h4>Correo electrónico</h4>
+                    <input type="email" class="input" required (focus)="addcl($event)" (blur)="remcl($event)">
+                </div>
+            </div>
+
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <h4>Contraseña</h4>
+                    <input type="password" class="input" id="pass1" required (focus)="addcl($event)"
+                        (blur)="remcl($event)">
+                </div>
+            </div>
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <h4>Confirmación de contraseña</h4>
+                    <input type="password" class="input" id="pass2" required (focus)="addcl($event)"
+                        (blur)="remcl($event)">
+                </div>
+            </div>
+            <input type="submit" id="btn-register" class="btn-register" value="Crear cuenta">
+        </form>
+    </div>
+</div>

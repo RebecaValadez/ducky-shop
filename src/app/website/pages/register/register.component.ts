@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private render: Renderer2) { }
 
   ngOnInit(): void {
   }
 
+  addcl(e: any) {
+    this.render.addClass(e?.target, "focus");
+  }
+
+  remcl(e: any) {
+    this.render.removeClass(e?.target, "focus");
+  }
 }
