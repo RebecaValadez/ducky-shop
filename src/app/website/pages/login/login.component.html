@@ -1,1 +1,29 @@
-<p>login works!</p>
+<div class="container">
+    <div class="login-content">
+        <form action=>
+            <img src="assets/img/logo.png">
+            <h2 class="title">Iniciar sesión</h2>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fa fa-envelope"></i>
+                </div>
+                <div class="div">
+                    <h4>Correo electrónico</h4>
+                    <input type="text" class="input" (focus)="addcl($event)" (blur)="remcl($event)">
+                </div>
+            </div>
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <h4>Contraseña</h4>
+                    <input type="password" class="input" (focus)="addcl($event)" (blur)="remcl($event)">
+                </div>
+            </div>
+            <input type="submit" id="btn-login" class="btn-login" value="Iniciar sesión">
+            <h4>¿No tienes una cuenta?</h4>
+            <input type="button" id="btn-register" class="btn-register" value="Crear una cuenta" (click)="redirect()">
+        </form>
+    </div>
+</div>
