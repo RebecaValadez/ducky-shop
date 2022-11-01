@@ -1,0 +1,64 @@
+.headers{
+  text-align: left;
+}
+
+.form_container {
+  width: 100%;
+  display: grid;
+  gap: 2em;
+  grid-auto-columns: 100%;
+}
+
+.form_cta {
+  font-family: arial;
+  font-size: 14.5px;
+  background: #fcda05;
+  color: black;
+  border: none;
+  padding: .7em 0;
+  border-radius: .2em;
+  cursor: pointer;
+  font-weight: 100;
+  border-radius: 15px;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid #222831;
+}
+
+thead th:nth-child(1) {
+  width: 5%;
+}
+
+thead th:nth-child(2) {
+  width: 25%;
+}
+
+thead th:nth-child(3) {
+  width: 25%;
+}
+
+thead th:nth-child(4) {
+  width: 15%;
+}
+
+thead th:nth-child(5) {
+  width: 20%;
+}
+
+thead th:nth-child(6) {
+  width: 10%;
+}
+
+th, td {
+  padding: 10px;
+}

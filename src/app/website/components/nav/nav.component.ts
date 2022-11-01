@@ -19,7 +19,7 @@ export class NavComponent implements OnInit {
 
   //Elementos para el dropdown---------------------------------------------------------
   public categories: Category[] = [];
-  public currentValue: any;
+  public currentValue: any = 'TODAS';
   public dropdownOpen: boolean = false;
   public get dropdownElement(): Element { return this.elem.nativeElement.querySelector('.dropdown-list') }
   private currentIndex = -1;

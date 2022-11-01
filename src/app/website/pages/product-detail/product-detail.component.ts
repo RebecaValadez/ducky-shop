@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { ProductsService } from '../../../services/products.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
@@ -13,7 +13,7 @@ export class ProductDetailComponent implements OnInit {
   producto!: Product;
   productId!: number;
 
-  constructor(private route: ActivatedRoute, private productsService: ProductsService) { }
+  constructor(private route: ActivatedRoute, private productsService: ProductsService, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
@@ -37,6 +37,6 @@ export class ProductDetailComponent implements OnInit {
   }
 
   buy(){
-    
+    this.router.navigate(['/buy']);
   }
 }

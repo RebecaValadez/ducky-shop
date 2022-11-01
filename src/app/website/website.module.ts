@@ -12,9 +12,6 @@ import { MycartComponent } from './pages/mycart/mycart.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { OrderDetailComponent } from './pages/order-detail/order-detail.component';
 import { BuyComponent } from './pages/buy/buy.component';
-import { CategoryComponent } from './pages/category/category.component';
-import { ProductComponent } from './components/product/product.component';
-import { ProductsComponent } from './components/products/products.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 
@@ -29,9 +26,6 @@ import { FooterComponent } from './components/footer/footer.component';
     ProductDetailComponent,
     OrderDetailComponent,
     BuyComponent,
-    CategoryComponent,
-    ProductComponent,
-    ProductsComponent,
     FooterComponent
   ],
   imports: [

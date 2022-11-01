@@ -14,12 +14,17 @@
               <span id="dropdown-label">Categoría</span><span class="dropdown-value">{{currentValue}}</span>
           </button>
           <ul class="dropdown-list" role="listbox" aria-expanded="false" [ngClass]="{'dropdown-open' : dropdownOpen}">
+              <li [routerLink]="['/home']"
+                  [ngClass]="{'selected' : currentValue === 'TODAS'}"
+                  (click)="select('TODAS')"
+              >TODAS</li>
               <li *ngFor="let category of categories"
                   [ngClass]="{'selected' : currentValue === category}"
                   tabindex="0"
                   (click)="select(category.name)"
                   role="option"
                   [innerHTML]="category.name"
+                  [routerLink]="['/category', category.id]"
                   >
               </li>
           </ul>

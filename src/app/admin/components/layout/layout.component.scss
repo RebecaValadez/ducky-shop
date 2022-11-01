@@ -4,8 +4,8 @@ div {
   grid-template-columns: 220px 1fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
-      "header header header"
-      "nav content content";
+    "header header header"
+    "nav content content";
   header {
     grid-area: header;
     display: flex;
@@ -15,12 +15,12 @@ div {
     color: white;
     padding: 1em;
     box-shadow: 1px 2px 4px 0 rgb(21 99 157 / 16%);
-    border-bottom: 1px solid rgba(21,99,157,0.16);
+    border-bottom: 1px solid rgba(21, 99, 157, 0.16);
   }
   nav {
     grid-area: nav;
-    border-right: 1px solid rgba(21,99,157,0.16);
-    background-color: #FCDA05;
+    border-right: 1px solid rgba(21, 99, 157, 0.16);
+    background-color: #fcda05;
     a {
       margin: 0;
       padding: 0;
@@ -41,7 +41,7 @@ div {
     padding: 1em;
   }
 
-  .logo-mini{
-    height: 50px;
+  .logo-mini {
+    height: 80px;
   }
 }

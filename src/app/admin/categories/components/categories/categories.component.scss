@@ -9,11 +9,53 @@
   color: red;
 }
 
+.headers{
+  text-align: left;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid #222831;
+}
+
+thead th:nth-child(1) {
+  width: 10%;
+}
+
+thead th:nth-child(2) {
+  width: 30%;
+}
+
+thead th:nth-child(3) {
+  width: 20%;
+}
+
+thead th:nth-child(4) {
+  width: 20%;
+}
+
+thead th:nth-child(5) {
+  width: 20%;
+}
+
+th, td {
+  padding: 10px;
+}
+
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
+
+a{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
 
 
 #navegacion{

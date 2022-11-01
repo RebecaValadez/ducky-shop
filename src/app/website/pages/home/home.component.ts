@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
+import { ProductsService } from '../../../services/products.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,22 +9,19 @@ import { Product } from 'src/app/models/product.model';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  productos: Array<Product> = [];
-  constructor() { }
+  products: Array<Product> = [];
+
+  constructor(private productsService: ProductsService, private router: Router) { }
 
   ngOnInit(): void {
-    this.productos.push({
-      id: 1,
-      code: "string",
-      name: "Producto 1",
-      price: 999999,
-      description: "Descripcion",
-      category_id: 1,
-      category_name: "Alimentos",
-      stock: 999999,
-      created_at: new Date(),
-      updated_at: new Date()
-    });
+    this.productsService.getAllProducts()
+      .subscribe((data) => {
+        this.products = data.data;
+      });
+  }
+
+  goProductDetail(id: number){
+    this.router.navigate(['/product', id]);
   }
 
 }

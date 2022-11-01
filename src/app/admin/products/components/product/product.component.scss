@@ -15,7 +15,6 @@
   box-sizing: border-box;
 }
 
-
 #navegacion{
   background-color: white;
   font-family: 'Oswald', sans-serif;
@@ -123,6 +122,13 @@ main .form p{
   cursor: pointer;
   font-weight: 100;
   border-radius: 15px;
+
+  span{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+
 }
 
 .form_ctb {
@@ -157,3 +163,4 @@ main .form p{
   text-align:center;
   background-color: gray;
 }
+
