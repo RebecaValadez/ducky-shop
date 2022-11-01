@@ -1,79 +1,95 @@
-<form [formGroup]="form" (ngSubmit)="save()">
-  <div>
-    <label>Nombre</label>
-    <input placeholder="Nombre" formControlName="name" type="text" />
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="product.component.scss">
+</head>
 
-    <div class="messages" [class.active]="nameField!.touched && nameField!.invalid">
-      <p>
-        <strong *ngIf="nameField!.touched && nameField!.hasError('required')">Este campo es requerido</strong>
-      </p>
-    </div>
-  </div>
+<!-- ESTO ES LO BUENO  -->
+<body>
+  <main>
+    <form [formGroup]="form" (ngSubmit)="save()" class="form">
+      <div id="Encabezado">
+        <h1>Producto</h1>
+        <br>
+      </div>
 
-  <div>
-    <label>Categoría</label>
-    <select formControlName="category_id">
-      <option [value]="category.id" *ngFor="let category of categories">
-        {{ category.name }}
-      </option>
-    </select>
+      <div class="form_container">
+        <input class="form_input" placeholder="Nombre" formControlName="name" type="text"/>
+      </div>
+      <div class="messages" [class.active]="nameField!.touched && nameField!.invalid">
+        <p>
+          <strong *ngIf="nameField!.touched && nameField!.hasError('required')">Este campo es requerido</strong>
+        </p>
+      </div>
 
-    <div class="messages" [class.active]="categoryField!.touched && categoryField!.invalid">
-      <p>
-        <strong *ngIf="categoryField!.touched && categoryField!.hasError('required')">Este campo es requerido</strong>
-      </p>
-    </div>
-  </div>
+      <br>
 
-  <div>
-    <label>Código</label>
-    <input placeholder="Código" formControlName="code" type="text" />
+      <div class="form_container">
+        <select formControlName="category_id" class="form_input"  >
+          <option value="" disabled selected hidden>Categoría</option>
+          <option [value]="category.id" *ngFor="let category of categories">
+            {{ category.name }}
+          </option>
+        </select>
+      </div>
 
-    <div class="messages" [class.active]="codeField!.touched && codeField!.invalid">
-      <p>
-        <strong *ngIf="codeField!.touched && codeField!.hasError('required')">Este campo es requerido</strong>
-      </p>
-    </div>
-  </div>
+      <br>
 
-  <div>
-    <label>Descripción</label>
-    <textarea
-      placeholder="Descripción..."
-      formControlName="description"
-    ></textarea>
+      <div class="form_container">
+        <input class="form_input" placeholder="Código" formControlName="code" type="text"  />
+      </div>
+      <div class="messages" [class.active]="nameField!.touched && nameField!.invalid">
+        <p>
+          <strong *ngIf="nameField!.touched && nameField!.hasError('required')">Este campo es requerido</strong>
+        </p>
+      </div>
 
-    <div class="messages" [class.active]="descriptionField!.touched && descriptionField!.invalid">
-      <p>
-        <strong *ngIf="descriptionField!.touched && descriptionField!.hasError('required')">Este campo es requerido</strong>
-      </p>
-    </div>
-  </div>
+      <br>
 
-  <div>
-    <label>Precio</label>
-    <input formControlName="price" type="number" step="1" />
+      <div class="form_container">
+        <textarea
+          placeholder="Descripción"
+          formControlName="description"
+          class="form_input"
+        ></textarea>
 
-    <div class="messages" [class.active]="priceField!.touched && priceField!.invalid">
-      <p>
-        <strong *ngIf="priceField!.touched && priceField!.hasError('required')">Este campo es requerido</strong>
-      </p>
-    </div>
-  </div>
+        <div class="messages" [class.active]="descriptionField!.touched && descriptionField!.invalid">
+          <p>
+            <strong *ngIf="descriptionField!.touched && descriptionField!.hasError('required')">Este campo es requerido</strong>
+          </p>
+        </div>
+      </div>
 
-  <div>
-    <label>Cantidad</label>
-    <input formControlName="stock" type="number" step="1" />
+      <div class="form_container">
+        <input class="form_input" placeholder="Precio" formControlName="price"s/>
 
-    <div class="messages" [class.active]="stockField!.touched && stockField!.invalid">
-      <p>
-        <strong *ngIf="stockField!.touched && stockField!.hasError('required')">Este campo es requerido</strong>
-      </p>
-    </div>
-  </div>
+        <div class="messages" [class.active]="priceField!.touched && priceField!.invalid">
+          <p>
+            <strong *ngIf="priceField!.touched && priceField!.hasError('required')">Este campo es requerido</strong>
+          </p>
+        </div>
+      </div>
 
-  <button type="submit">
-    <span *ngIf="!product_id">Crear producto</span>
-    <span *ngIf="product_id">Editar producto</span>
-  </button>
-</form>
+      <div class="form_container">
+        <input class="form_input" placeholder="Cantidad" formControlName="stock" type="number" step="1" />
+
+        <div class="messages" [class.active]="stockField!.touched && stockField!.invalid">
+          <p>
+            <strong *ngIf="stockField!.touched && stockField!.hasError('required')">Este campo es requerido</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="form_container">
+        <button type="submit" class="form_cta">
+          <span *ngIf="!product_id">Crear producto</span>
+          <span *ngIf="product_id">Editar producto</span>
+        </button>
+      </div>
+
+    </form>
+  </main>
+</body>
+
+<!-- ESTO ES LO BUENO  -->
