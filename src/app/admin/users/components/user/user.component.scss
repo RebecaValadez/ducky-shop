@@ -1,0 +1,44 @@
+.container {
+    font-family: 'Fira Sans', sans-serif;
+
+}
+
+h3 {
+    text-transform: uppercase;
+}
+
+.btn-cancelar {
+    background-color: #FCDA05;
+    border-color: #FCDA05;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+    border-radius: 25px;
+    width: 20%;
+    height: 35px;
+}
+
+.btn-cancelar:hover {
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+.btn-actualizar {
+    background-color: #000;
+    border-color: #000;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 25px;
+    width: 20%;
+    height: 35px;
+}
+
+.btn-actualizar:hover {
+    background-color: #FCDA05;
+    color: #000;
+    border-color: #FCDA05;
+}
