@@ -171,7 +171,6 @@ a:visited {
   left: 0;
   background-color: #222831;
   overflow-x: hidden;
-  padding-top: 60px;
   transition: 0.5s;
 }
 
@@ -269,4 +268,10 @@ $border-color: #ddd;
   &.dropdown-open {
     display: block;
   }
+}
+
+#categorias-2 {
+  max-height: 75px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }

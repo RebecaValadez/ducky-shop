@@ -94,6 +94,22 @@
       <!--dropdown menu-->
       <div class="nav-left">
         <button (click)="toogleTopbar()">X</button>
+        <div class="dropdown-collection responsive-resize">
+          <button class="dropdown-button" aria-haspopup="listbox" aria-labelledby="dropdown-label"
+            (click)="toggleDropdown()" (clickOutside)="dropdownOpen = false">
+            <span id="dropdown-label" class="responsive-hide">Categoría</span><span
+              class="dropdown-value">{{currentValue}}</span>
+          </button>
+          <ul class="dropdown-list" id="categorias-2" role="listbox" aria-expanded="false"
+            [ngClass]="{'dropdown-open' : dropdownOpen}">
+            <li [routerLink]="['/home']" [ngClass]="{'selected' : currentValue === 'TODAS'}" (click)="select('TODAS')">
+              TODAS</li>
+            <li *ngFor="let category of categories" [ngClass]="{'selected' : currentValue === category}" tabindex="0"
+              (click)="select(category.name)" role="option" [innerHTML]="category.name"
+              [routerLink]="['/category', category.id]">
+            </li>
+          </ul>
+        </div>
       </div>
       <!--dropdown menu-->
 
