@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Category } from './../../../models/category.model';
 import { CategoriesService } from './../../../services/categories.service';
 
@@ -11,10 +11,40 @@ export class NavComponent implements OnInit {
 
 
 
-  constructor(private elem: ElementRef, private categoriesService: CategoriesService) { }
+  constructor(private elem: ElementRef, private categoriesService: CategoriesService, private renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.getCategories();
+  }
+
+  //Elementos para menu responsivo-----------------------------------------------------
+  public get menuElement(): Element { return this.elem.nativeElement.querySelector('.menu-responsivo') }
+  public menuOpen: boolean = false;
+  public get sidebarElement(): Element { return this.elem.nativeElement.querySelector('.sidebar') }
+
+  toogleMenu() {
+    if (this.menuOpen) {
+      //this.renderer.removeClass(this.menuElement, "active");
+      this.renderer.removeClass(this.sidebarElement, "active");
+    } else {
+      //this.renderer.addClass(this.menuElement, "active");
+      this.renderer.addClass(this.sidebarElement, "active");
+    }
+    this.menuOpen = !this.menuOpen;
+  }
+
+  public topbarOpen: boolean = false;
+  public get topbarElement(): Element { return this.elem.nativeElement.querySelector('.topbar') }
+
+  toogleTopbar() {
+    if (this.topbarOpen) {
+      //this.renderer.removeClass(this.menuElement, "active");
+      this.renderer.removeClass(this.topbarElement, "active");
+    } else {
+      //this.renderer.addClass(this.menuElement, "active");
+      this.renderer.addClass(this.topbarElement, "active");
+    }
+    this.topbarOpen = !this.topbarOpen;
   }
 
   //Elementos para el dropdown---------------------------------------------------------
@@ -47,7 +77,7 @@ export class NavComponent implements OnInit {
 
   getCategories() {
     this.categoriesService.getAllCategories()
-      .subscribe((data:any) => {
+      .subscribe((data: any) => {
         this.categories = data.data;
       });
   }
