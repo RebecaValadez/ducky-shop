@@ -7,7 +7,7 @@ import { User } from './../models/user.model';
 })
 
 export class UsersService {
-  apiUrl = 'http://ecommerceapi.x10.mx/api';
+  apiUrl = 'http://localhost:8000/api';
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +19,7 @@ export class UsersService {
     return this.http.get<any>(`${this.apiUrl}/auth/users/${id}`);
   }
 
-  deleteCategory(id: number) {
+  deleteUser(id: number) {
     return this.http.delete(`${this.apiUrl}/auth/users/${id}`);
   }
 
@@ -35,5 +35,5 @@ export class UsersService {
     return this.http.put<User>(`${this.apiUrl}/auth/users/${id}`, data);
   }
 
-  
+
 }
