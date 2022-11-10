@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QuicklinkModule } from 'ngx-quicklink';
 import { WebsiteRoutingModule } from './website-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { NavComponent } from './components/nav/nav.component';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -31,7 +32,8 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     CommonModule,
     WebsiteRoutingModule,
-    QuicklinkModule
+    QuicklinkModule,
+    ReactiveFormsModule,
   ]
 })
 export class WebsiteModule { }

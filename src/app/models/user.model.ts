@@ -2,9 +2,10 @@ export interface User {
   id: number;
   username: string;
   email: string;
-  phone: string;
-  full_name: string;
   password: string;
+  full_name: string;
+  first_name: string;
+  phone: string;
   address_line_1: string;
   address_line_2: string;
   address_city: string;
@@ -13,4 +14,5 @@ export interface User {
   address_cp: number;
   created_at: Date;
   updated_at: Date;
+  is_staff: Boolean
 }

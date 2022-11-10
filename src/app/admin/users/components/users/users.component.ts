@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
+import { User } from '../../../../models/user.model';
+import { UsersService } from '../../../../services/users.service';
 
 @Component({
   selector: 'app-users',
@@ -9,16 +9,25 @@ import { Router } from '@angular/router';
 })
 export class UsersComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  public users: User[] = [];
+
+  constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
+    this.getUsers();
   }
 
-  createUser() {
-    this.router.navigate(['/admin/user']);
+  getUsers() {
+    this.usersService.getAllUsers()
+      .subscribe((data: any) => {
+        this.users = data;
+      });
   }
 
-  editUser() {
-    this.router.navigate(['/admin/user']);
+  deleteUser(id: number) {
+    this.usersService.deleteUser(id)
+    .subscribe(() => {
+      this.getUsers();
+    });
   }
 }

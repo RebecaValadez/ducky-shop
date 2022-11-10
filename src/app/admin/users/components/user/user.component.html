@@ -1,45 +1,73 @@
 <!-- Formulario del usuario  -->
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="user.component.scss">
-    <title> </title>
-
-</head>
-
-<body>
-    <header>
-
-    </header>
-    <main>
-        <form class="form">
-            <div id="Encabezado">
-                <h1>Actualizar informacion</h1>
-                <br>
-            </div>
-            <div class="form_container">
-              <input type="text" class="form_input" placeholder="USERNAME" name="username">
-              <input type="text" class="form_input" placeholder="EMAIL" name="email">
-              <input type="text" class="form_input" placeholder="TELEFONO" name="phone">
-              <input type="text" class="form_input" placeholder="NOMBRE" name="full_name">
-              <input type="email" class="form_input" placeholder="CONTRASEÑA" name="password">
-              <input type="password" class="form_input" placeholder="DIRECCION" name="address_line_1">
-              <input type="password" class="form_input" placeholder="COLONIA" name="address_line_2">
-              <input type="password" class="form_input" placeholder="CIUDAD" name="address_city">
-              <input type="password" class="form_input" placeholder="ESTADO" name="address_state">
-              <input type="password" class="form_input" placeholder="PAIS" name="address_country">
-              <input type="password" class="form_input" placeholder="C.P." name="address_cp">
-              <input type="submit" value="Actualizar" class="form_cta">
-              <input type="submit" value="Cancelar" class="form_ctb">
-            </div>
-
-        </form>
-    </main>
-
-
-</body>
+<form [formGroup]="form" class="form">
+  <div id="Encabezado">
+    <h1>Actualizar informacion</h1>
+    <br />
+  </div>
+  <div class="form_container">
+    <input
+      formControlName="username"
+      type="text"
+      class="form_input"
+      placeholder="USERNAME"
+      name="username"
+    />
+    <input type="text" class="form_input" placeholder="EMAIL" name="email" />
+    <input type="text" class="form_input" placeholder="TELEFONO" name="phone" />
+    <input
+      type="text"
+      class="form_input"
+      placeholder="NOMBRE"
+      name="full_name"
+    />
+    <input
+      type="email"
+      class="form_input"
+      placeholder="CONTRASEÑA"
+      name="password"
+    />
+    <input
+      type="password"
+      class="form_input"
+      placeholder="DIRECCION"
+      name="address_line_1"
+    />
+    <input
+      type="password"
+      class="form_input"
+      placeholder="COLONIA"
+      name="address_line_2"
+    />
+    <input
+      type="password"
+      class="form_input"
+      placeholder="CIUDAD"
+      name="address_city"
+    />
+    <input
+      type="password"
+      class="form_input"
+      placeholder="ESTADO"
+      name="address_state"
+    />
+    <input
+      type="password"
+      class="form_input"
+      placeholder="PAIS"
+      name="address_country"
+    />
+    <input
+      type="password"
+      class="form_input"
+      placeholder="C.P."
+      name="address_cp"
+    />
+    <div class="form_container">
+      <button type="submit" class="form_cta">
+        <span *ngIf="!user_id">Crear categoría</span>
+        <span *ngIf="user_id">Editar categoría</span>
+      </button>
+    </div>
+  </div>
+</form>

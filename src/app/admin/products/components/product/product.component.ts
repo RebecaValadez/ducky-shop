@@ -24,9 +24,9 @@ export class ProductComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.buildForm();
-   }
+  }
 
-   ngOnInit(): void {
+  ngOnInit(): void {
     this.getCategories();
     this.route.params.subscribe((params: Params) => {
       this.product_id = params['id'];
@@ -87,29 +87,29 @@ export class ProductComponent implements OnInit {
     const data = this.form.value;
     console.log(data);
     this.productsService.createProduct(data)
-    .subscribe(rta => {
-      this.router.navigate(['/admin/products']);
-    });
+      .subscribe(rta => {
+        this.router.navigate(['/admin/products']);
+      });
   }
 
   private updateProduct() {
     const data = this.form.value;
     this.productsService.updateProduct(this.product_id, data)
-    .subscribe(rta => {
-      this.router.navigate(['/admin/products']);
-    });
+      .subscribe(rta => {
+        this.router.navigate(['/admin/products']);
+      });
   }
 
   private getProduct() {
     this.productsService.getProduct(this.product_id)
-    .subscribe(data => {
-      this.form.patchValue(data.data);
-    });
+      .subscribe(data => {
+        this.form.patchValue(data.data);
+      });
   }
 
   getCategories() {
     this.categoriesService.getAllCategories()
-      .subscribe((data:any) => {
+      .subscribe((data: any) => {
         this.categories = data.data;
       });
   }

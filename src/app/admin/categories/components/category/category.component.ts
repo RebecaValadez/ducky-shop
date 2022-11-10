@@ -55,7 +55,6 @@ export class CategoryComponent implements OnInit {
 
   private createCategory() {
     const data = this.form.value;
-    console.log(data);
     this.categoriesService.createCategory(data)
     .subscribe(rta => {
       this.router.navigate(['/admin/categories']);

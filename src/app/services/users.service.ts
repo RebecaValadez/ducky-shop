@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { tap } from 'rxjs/operators'
 import { User } from './../models/user.model';
+import { Auth } from './../models/auth.model';
+import { TokenService } from './../services/token.service';
+import { checkToken } from '../interceptors/token.interceptor';
 
 @Injectable({
   providedIn: 'root'
@@ -9,31 +13,35 @@ import { User } from './../models/user.model';
 export class UsersService {
   apiUrl = 'http://localhost:8000/api';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private tokenService: TokenService
+    ) { }
 
-  loginUser(user:User){
-      return this.http.post<User>(`${this.apiUrl}/auth/login`, user);
+  login(data: Partial<User>){
+    return this.http.post<Auth>(`${this.apiUrl}/auth/login/`, data)
+    .pipe(
+      tap(response => this.tokenService.saveToken(response.token))
+    );
   }
 
   getUser(id: number) {
-    return this.http.get<any>(`${this.apiUrl}/auth/users/${id}`);
+    return this.http.get<any>(`${this.apiUrl}/auth/users/${id}/`, {context: checkToken()});
   }
 
   deleteUser(id: number) {
-    return this.http.delete(`${this.apiUrl}/auth/users/${id}`);
+    return this.http.delete(`${this.apiUrl}/auth/users/${id}`, {context: checkToken()});
   }
 
   getAllUsers() {
-    return this.http.get<any>(`${this.apiUrl}/auth/users/`);
+    return this.http.get<any>(`${this.apiUrl}/auth/users/`, {context: checkToken()});
   }
 
   createUser(data: Partial<User>) {
-    return this.http.post<User>(`${this.apiUrl}/auth/users/`, data);
+    return this.http.post<User>(`${this.apiUrl}/auth/users/`, data, {context: checkToken()});
   }
 
   updateUser(id: number, data: Partial<User>) {
-    return this.http.put<User>(`${this.apiUrl}/auth/users/${id}`, data);
+    return this.http.put<User>(`${this.apiUrl}/auth/users/${id}`, data, {context: checkToken()});
   }
-
-
 }

@@ -7,7 +7,8 @@ import { Product } from './../models/product.model';
 })
 export class ProductsService {
 
-  apiUrl = 'http://ecommerceapi.x10.mx/api';
+   //apiUrl = 'http://ecommerceapi.x10.mx/api';
+  apiUrl = 'http://localhost:8000/api';
 
   constructor(private http: HttpClient) { }
 
@@ -38,4 +39,8 @@ export class ProductsService {
   deleteProduct(id: number) {
     return this.http.delete(`${this.apiUrl}/products/${id}`);
   }
+
+  // searchProduct(data: Partial<Product>){
+  //   return this.http.get(`${this.apiUrl}/products-search`, data);
+  // }
 }
