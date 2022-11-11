@@ -9,11 +9,11 @@ export class CategoriesService {
 
   //apiUrl = 'http://ecommerceapi.x10.mx/api';
   apiUrl = 'http://localhost:8000/api';
-  
+
   constructor(private http: HttpClient) { }
 
   getAllCategories() {
-    return this.http.get<any>(`${this.apiUrl}/categories`);
+    return this.http.get<any>(`${this.apiUrl}/categories/`);
   }
 
   getCategory(id: number) {

@@ -34,8 +34,26 @@ export class UserComponent implements OnInit {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      username: ['', Validators.required]
+      id:[''],
+      username: [''],
+      email: ['', Validators.required],
+      full_name: ['', Validators.required],
+      is_superuser: ['', Validators.required],
+      phone: [''],
+      password: [''],
+      address_country: [''],
+      address_state: [''],
+      address_city: [''],
+      address_cp: ['', Validators.required],
+      address_line_1: [''],
+      address_line_2: [''],
+      created_at:[''],
+      updated_at:['']
     });
+  }
+
+  redirect(){
+    this.router.navigate(['/admin/users']);
   }
 
   save() {
@@ -52,6 +70,7 @@ export class UserComponent implements OnInit {
 
   private createUser() {
     const data = this.form.value;
+    console.log(data)
     this.usersService.createUser(data)
     .subscribe(() => {
       this.router.navigate(['/admin/users']);
@@ -60,8 +79,9 @@ export class UserComponent implements OnInit {
 
   private updateUser() {
     const data = this.form.value;
+    console.log(data)
     this.usersService.updateUser(this.user_id, data)
-    .subscribe(() => {
+    .subscribe(rta => {
       this.router.navigate(['/admin/users']);
     });
   }
@@ -70,8 +90,7 @@ export class UserComponent implements OnInit {
     this.usersService.getUser(this.user_id)
     .subscribe(data => {
       console.log(data)
-      this.form.patchValue(data.data);
+      this.form.patchValue(data);
     });
   }
-
 }

@@ -18,7 +18,7 @@
 
 #navegacion{
   background-color: white;
-  font-family: 'Oswald', sans-serif;
+  // font-family: 'Oswald', sans-serif;
   text-align: center;
 }
 
@@ -48,7 +48,7 @@ main {
   min-height: 80vh;
   width: 100%;
   display: flex;
-  font-family: 'Montserrat Alternates', sans-serif;
+  // font-family: 'Montserrat Alternates', sans-serif;
 }
 
 main .form h1{
@@ -86,7 +86,7 @@ main .form p{
 }
 
 .form_input {
-  font-family: comics sans-serif;
+  // font-family: comics sans-serif;
   font-size: 13.5px;
   color: black;
   padding: .8em 1em;
@@ -113,7 +113,7 @@ main .form p{
 
 
 .form_cta {
-  font-family: arial;
+  // font-family: arial;
   font-size: 14.5px;
   background: #fcda05;
   color: black;
@@ -123,10 +123,20 @@ main .form p{
   cursor: pointer;
   font-weight: 100;
   border-radius: 15px;
+
+  span{
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
+
+.form_cta:hover {
+  background: #222831;
+  color: white;
 }
 
 .form_ctb {
-  font-family: roboto;
+  // font-family: roboto;
   background: #393d46;
   color: white;
   border: none;

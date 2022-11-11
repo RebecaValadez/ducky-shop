@@ -126,10 +126,25 @@ main .form p{
   cursor: pointer;
   font-weight: 100;
   border-radius: 15px;
+
+  a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+}
+
+.form_cta:hover {
+  background: #222831;
+  color: white;
+
+  a{
+    color: white;
+  }
 }
 
 .form_ctb {
-  font-family: roboto;
+  // font-family: roboto;
   background: #393d46;
   color: white;
   border: none;
@@ -159,12 +174,6 @@ main .form p{
 .Piep #derechos{
   text-align:center;
   background-color: gray;
-}
-
-a{
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
 }
 
 .headers{

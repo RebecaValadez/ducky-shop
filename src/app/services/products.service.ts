@@ -29,7 +29,7 @@ export class ProductsService {
   }
 
   createProduct(data: Partial<Product>) {
-    return this.http.post(`${this.apiUrl}/products`, data);
+    return this.http.post(`${this.apiUrl}/products/`, data);
   }
 
   updateProduct(id: number, data: Partial<Product>) {

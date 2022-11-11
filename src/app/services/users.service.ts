@@ -38,10 +38,10 @@ export class UsersService {
   }
 
   createUser(data: Partial<User>) {
-    return this.http.post<User>(`${this.apiUrl}/auth/users/`, data, {context: checkToken()});
+    return this.http.post<User>(`${this.apiUrl}/auth/users/`, data);
   }
 
   updateUser(id: number, data: Partial<User>) {
-    return this.http.put<User>(`${this.apiUrl}/auth/users/${id}`, data, {context: checkToken()});
+    return this.http.put<User>(`${this.apiUrl}/auth/users/${id}/`, data, {context: checkToken()});
   }
 }

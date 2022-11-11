@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Order } from './../models/order.model';
 
 @Injectable({
@@ -7,16 +7,21 @@ import { Order } from './../models/order.model';
 })
 export class OrdersService {
 
-  apiUrl = 'http://ecommerceapi.x10.mx/api';
+  //apiUrl = 'http://ecommerceapi.x10.mx/api';
+  apiUrl = 'http://localhost:8000/api';
 
   constructor(private http: HttpClient) { }
 
-  setOrderAsCompleted(id: number) {
-    //here we must give a token
-    return this.http.post<Order>(`${this.apiUrl}/orders/${id}`);
-   }
+  // setOrderAsCompleted(id: number) {
+  //   //here we must give a token
+  //   return this.http.post<Order>(`${this.apiUrl}/orders/${id}`);
+  //  }
 
-   createOrder(data: Partial<Order>) {
+  getAllOrders(){
+    return this.http.get<any>(`${this.apiUrl}/orders`);
+  }
+
+  createOrder(data: Partial<Order>) {
     return this.http.post<Order>(`${this.apiUrl}/orders/`, data);
-   }
+  }
 }

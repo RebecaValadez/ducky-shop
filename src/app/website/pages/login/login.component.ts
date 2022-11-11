@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../../../services/users.service';
@@ -11,11 +11,10 @@ import { UsersService } from '../../../services/users.service';
 export class LoginComponent implements OnInit {
 
   token!: string;
-  flag!: boolean;
+  flag: boolean = false;
   form!: FormGroup;
 
   constructor(
-    private render: Renderer2,
     private router: Router,
     private formBuilder: FormBuilder,
     private usersService: UsersService,
@@ -43,17 +42,14 @@ export class LoginComponent implements OnInit {
 
   login(){
     const data = this.form.value;
-    console.log(data)
     this.usersService.login(data)
     .subscribe( rta => {
       this.token = rta.token;
       if (this.token != null){
         this.router.navigate(["/home"]);
       }
-      else{
-        this.flag = true
-      }
     });
+    this.flag = true
   }
 
   register() {

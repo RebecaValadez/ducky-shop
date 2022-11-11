@@ -15,7 +15,7 @@
       </div>
 
       <div class="form_container">
-        <input class="form_input" placeholder="Nombre" formControlName="name" type="text"/>
+        <input class="form_input" placeholder="NOMBRE" formControlName="name" type="text"/>
       </div>
       <div class="messages" [class.active]="nameField!.touched && nameField!.invalid">
         <p>
@@ -27,7 +27,7 @@
 
       <div class="form_container">
         <select formControlName="category_id" class="form_input"  >
-          <option value="" disabled selected hidden>Categoría</option>
+          <option value="" disabled selected hidden>CATEGORÍA</option>
           <option [value]="category.id" *ngFor="let category of categories">
             {{ category.name }}
           </option>
@@ -37,7 +37,7 @@
       <br>
 
       <div class="form_container">
-        <input class="form_input" placeholder="Código" formControlName="code" type="text"  />
+        <input class="form_input" placeholder="CÓDIGO" formControlName="code" type="text"  />
       </div>
       <div class="messages" [class.active]="nameField!.touched && nameField!.invalid">
         <p>
@@ -49,7 +49,7 @@
 
       <div class="form_container">
         <textarea
-          placeholder="Descripción"
+          placeholder="DESCRIPCIÓN"
           formControlName="description"
           class="form_input"
         ></textarea>
@@ -62,7 +62,7 @@
       </div>
 
       <div class="form_container">
-        <input class="form_input" placeholder="Precio" formControlName="price"s/>
+        <input class="form_input" placeholder="PRECIO" formControlName="price"s/>
 
         <div class="messages" [class.active]="priceField!.touched && priceField!.invalid">
           <p>
@@ -72,7 +72,7 @@
       </div>
 
       <div class="form_container">
-        <input class="form_input" placeholder="Cantidad" formControlName="stock" type="number" step="1" />
+        <input class="form_input" placeholder="CANTIDAD" formControlName="stock" type="number" step="1" />
 
         <div class="messages" [class.active]="stockField!.touched && stockField!.invalid">
           <p>

@@ -31,11 +31,11 @@
                 <strong *ngIf="passwordField!.touched && passwordField!.hasError('required')">Este campo es requerido</strong>
               </p>
             </div>
-            <!-- <div class="messages" [class.active]="">
+            <div class="messages" [class.active]="passwordField!.touched">
               <p>
-                <strong>Usuario o contraseña incorrectos</strong>
+                <strong *ngIf="flag == true">Usuario o contraseña incorrectos</strong>
               </p>
-            </div> -->
+            </div>
             <input type="submit" id="btn-login" class="btn-login" value="Iniciar sesión" (click)="login()">
             <h4>¿No tienes una cuenta?</h4>
             <input type="button" id="btn-register" class="btn-register" value="Crear una cuenta" (click)="register()">

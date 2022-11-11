@@ -1,73 +1,103 @@
 <!-- Formulario del usuario  -->
-
-<form [formGroup]="form" class="form">
-  <div id="Encabezado">
-    <h1>Actualizar informacion</h1>
-    <br />
-  </div>
-  <div class="form_container">
-    <input
-      formControlName="username"
-      type="text"
-      class="form_input"
-      placeholder="USERNAME"
-      name="username"
-    />
-    <input type="text" class="form_input" placeholder="EMAIL" name="email" />
-    <input type="text" class="form_input" placeholder="TELEFONO" name="phone" />
-    <input
-      type="text"
-      class="form_input"
-      placeholder="NOMBRE"
-      name="full_name"
-    />
-    <input
-      type="email"
-      class="form_input"
-      placeholder="CONTRASEÑA"
-      name="password"
-    />
-    <input
-      type="password"
-      class="form_input"
-      placeholder="DIRECCION"
-      name="address_line_1"
-    />
-    <input
-      type="password"
-      class="form_input"
-      placeholder="COLONIA"
-      name="address_line_2"
-    />
-    <input
-      type="password"
-      class="form_input"
-      placeholder="CIUDAD"
-      name="address_city"
-    />
-    <input
-      type="password"
-      class="form_input"
-      placeholder="ESTADO"
-      name="address_state"
-    />
-    <input
-      type="password"
-      class="form_input"
-      placeholder="PAIS"
-      name="address_country"
-    />
-    <input
-      type="password"
-      class="form_input"
-      placeholder="C.P."
-      name="address_cp"
-    />
-    <div class="form_container">
-      <button type="submit" class="form_cta">
-        <span *ngIf="!user_id">Crear categoría</span>
-        <span *ngIf="user_id">Editar categoría</span>
-      </button>
-    </div>
-  </div>
-</form>
+<body>
+  <main>
+    <form [formGroup]="form"  class="form">
+      <div id="Encabezado">
+        <h1>Información del usuario</h1>
+        <br />
+      </div>
+      <div class="form_container">
+        <input
+          formControlName="username"
+          type="text"
+          class="form_input"
+          placeholder="USERNAME"
+          name="username"
+        />
+        <input
+          formControlName="email"
+          type="text"
+          class="form_input"
+          placeholder="EMAIL"
+          name="email"
+        />
+        <input
+        formControlName="password"
+        type="password"
+        class="form_input"
+        placeholder="CONTRASEÑA"
+        name="password"
+        />
+        <input
+          formControlName="full_name"
+          type="text"
+          class="form_input"
+          placeholder="NOMBRE"
+          name="full_name"
+        />
+        <input
+          formControlName="is_superuser"
+          type="text"
+          class="form_input"
+          placeholder="¿ES SUPERUSUARIO?"
+          name="password"
+        />
+        <input
+          formControlName="phone"
+          type="number"
+          class="form_input"
+          placeholder="TELEFONO"
+          name="phone"
+        />
+        <input
+          formControlName="address_line_1"
+          type="text"
+          class="form_input"
+          placeholder="DIRECCION"
+          name="address_line_1"
+        />
+        <input
+          formControlName="address_line_2"
+          type="text"
+          class="form_input"
+          placeholder="COLONIA"
+          name="address_line_2"
+        />
+        <input
+          formControlName="address_cp"
+          type="number"
+          class="form_input"
+          placeholder="CÓDIGO POSTAL"
+          name="address_cp"
+        />
+        <input
+          formControlName="address_city"
+          type="text"
+          class="form_input"
+          placeholder="CIUDAD"
+          name="address_city"
+        />
+        <input
+          formControlName="address_state"
+          type="text"
+          class="form_input"
+          placeholder="ESTADO"
+          name="address_state"
+        />
+        <input
+          formControlName="address_country"
+          type="text"
+          class="form_input"
+          placeholder="PAÍS"
+          name="address_country"
+        />
+        <div class="form_container">
+          <button (click)="save()" type="submit" class="form_cta">
+            <span *ngIf="!user_id">Crear usuario</span>
+            <span *ngIf="user_id">Editar usuario</span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </main>
+</body>
