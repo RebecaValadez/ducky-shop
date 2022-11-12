@@ -40,7 +40,7 @@ export class ProductsService {
     return this.http.delete(`${this.apiUrl}/products/${id}`);
   }
 
-  // searchProduct(data: Partial<Product>){
-  //   return this.http.get(`${this.apiUrl}/products-search`, data);
-  // }
+  searchProduct(data: Partial<Product>){
+    return this.http.post<any>(`${this.apiUrl}/products-search`, data);
+  }
 }

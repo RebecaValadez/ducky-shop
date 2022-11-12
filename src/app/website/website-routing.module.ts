@@ -9,6 +9,8 @@ import { MycartComponent } from './pages/mycart/mycart.component';
 import { OrderDetailComponent } from './pages/order-detail/order-detail.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AccountComponent } from './pages/account/account.component';
+import { ProductSearchComponent } from './pages/product-search/product-search.component';
 
 const routes: Routes = [
   {
@@ -40,13 +42,21 @@ const routes: Routes = [
         component: ProductDetailComponent
       },
       {
+        path: 'product-search/:name',
+        component: ProductSearchComponent
+      },
+      {
         path: 'my-cart',
         component: MycartComponent,
       },
       {
         path: 'order',
         component: OrderDetailComponent,
-      }
+      },
+      {
+        path: 'account',
+        component: AccountComponent,
+      },
     ]
   },
   {

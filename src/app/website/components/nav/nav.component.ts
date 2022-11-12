@@ -1,6 +1,9 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Router } from '@angular/router';
 import { Category } from './../../../models/category.model';
 import { CategoriesService } from './../../../services/categories.service';
+import { User } from 'src/app/models/user.model';
+import { UsersService } from '../../../services/users.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,12 +12,21 @@ import { CategoriesService } from './../../../services/categories.service';
 })
 export class NavComponent implements OnInit {
 
+  user!: User;
+  userName: String = "Inciar sesión";
+  productName: string = "";
 
-
-  constructor(private elem: ElementRef, private categoriesService: CategoriesService, private renderer: Renderer2) { }
+  constructor(
+    private elem: ElementRef,
+    private categoriesService: CategoriesService,
+    private renderer: Renderer2,
+    private router: Router,
+    private usersService: UsersService
+  ) { }
 
   ngOnInit(): void {
     this.getCategories();
+    this.getUser();
   }
 
   //Elementos para menu responsivo-----------------------------------------------------
@@ -80,5 +92,25 @@ export class NavComponent implements OnInit {
       .subscribe((data: any) => {
         this.categories = data.data;
       });
+  }
+
+  getUser() {
+    this.usersService.getUserLogged()
+      .subscribe(data => {
+        this.user = data
+        this.userName = this.user.full_name
+      })
+  }
+
+  redirectUser(){
+    if(this.userName == "Inciar sesión"){
+      this.router.navigate(["/login"]);
+    } else {
+      this.router.navigate(["/account"]);
+    }
+  }
+
+  productSearch(name: string){
+    this.router.navigate(['/product-search', name]);
   }
 }

@@ -16,7 +16,7 @@
     <tbody *ngFor="let user of users">
         <tr>
           <td>{{user.id}}</td>
-          <td>{{user.username}}</td>
+          <td>{{user.full_name}}</td>
           <td>
             <a [routerLink]="['edit', user.id]">
               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -55,7 +55,7 @@
     <tbody *ngFor="let user of users">
         <tr>
           <td>{{user.id}}</td>
-          <td>{{user.username}}</td>
+          <td>{{user.full_name}}</td>
           <td>{{user.email}}</td>
           <td>
             <a [routerLink]="['edit', user.id]">
@@ -89,7 +89,7 @@
       <th>Id</th>
       <th>Nombre de usuario</th>
       <th>Correo electrónico</th>
-      <th>Teléfono</th>
+      <th>País</th>
       <th>Estado</th>
       <th>Ciudad</th>
       <th>Fecha de creación</th>
@@ -99,9 +99,9 @@
     <tbody *ngFor="let user of users">
         <tr>
           <td>{{user.id}}</td>
-          <td>{{user.username}}</td>
+          <td>{{user.full_name}}</td>
           <td>{{user.email}}</td>
-          <td>{{user.phone}}</td>
+          <td>{{user.address_country}}</td>
           <td>{{user.address_state}}</td>
           <td>{{user.address_city}}</td>
           <td>{{user.created_at}}</td>

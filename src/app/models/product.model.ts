@@ -7,6 +7,6 @@ export interface Product {
   category_name: string;
   description: string;
   stock: number;
-  created_at: Date;
-  updated_at: Date;
+  created_at?: Date;
+  updated_at?: Date;
 }

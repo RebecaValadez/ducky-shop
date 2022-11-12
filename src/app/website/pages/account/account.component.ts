@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UsersService } from '../../../../services/users.service';
+import { UsersService } from '../../../services/users.service';
+import { User } from 'src/app/models/user.model';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  selector: 'app-account',
+  templateUrl: './account.component.html',
+  styleUrls: ['./account.component.scss']
 })
-export class UserComponent implements OnInit {
+export class AccountComponent implements OnInit {
 
+  user!: User;
   form!: FormGroup;
   user_id!: number;
 
@@ -23,12 +25,7 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      this.user_id = params['id'];
-      if (this.user_id) {
-        this.getUser();
-      }
-    });
+    this.getUser();
   }
 
   private buildForm() {
@@ -66,25 +63,15 @@ export class UserComponent implements OnInit {
     return this.form.get('address_cp');
   }
 
+
   save() {
     if (this.form.valid) {
       if (this.user_id) {
         this.updateUser();
-      } else {
-        this.createUser();
       }
     } else {
       this.form.markAllAsTouched();
     }
-  }
-
-  private createUser() {
-    const data = this.form.value;
-    console.log(data)
-    this.usersService.createUser(data)
-    .subscribe(() => {
-      this.router.navigate(['/admin/users']);
-    });
   }
 
   private updateUser() {
@@ -92,15 +79,16 @@ export class UserComponent implements OnInit {
     console.log(data)
     this.usersService.updateUser(this.user_id, data)
     .subscribe(rta => {
-      this.router.navigate(['/admin/users']);
+      this.router.navigate(['/home']);
     });
   }
 
-  private getUser() {
-    this.usersService.getUser(this.user_id)
-    .subscribe(data => {
-      console.log(data)
-      this.form.patchValue(data);
-    });
+  getUser() {
+    this.usersService.getUserLogged()
+      .subscribe(data => {
+        this.form.patchValue(data);
+        this.user = data
+        this.user_id = this.user.id
+      })
   }
 }

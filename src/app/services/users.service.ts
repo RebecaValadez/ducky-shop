@@ -25,6 +25,10 @@ export class UsersService {
     );
   }
 
+  getUserLogged() {
+    return this.http.get<any>(`${this.apiUrl}/auth/me`, {context: checkToken()});
+  }
+
   getUser(id: number) {
     return this.http.get<any>(`${this.apiUrl}/auth/users/${id}/`, {context: checkToken()});
   }

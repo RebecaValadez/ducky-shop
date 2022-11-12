@@ -39,9 +39,9 @@
       <div class="form_container">
         <input class="form_input" placeholder="CÓDIGO" formControlName="code" type="text"  />
       </div>
-      <div class="messages" [class.active]="nameField!.touched && nameField!.invalid">
+      <div class="messages" [class.active]="codeField!.touched && codeField!.invalid">
         <p>
-          <strong *ngIf="nameField!.touched && nameField!.hasError('required')">Este campo es requerido</strong>
+          <strong *ngIf="codeField!.touched && codeField!.hasError('required')">Este campo es requerido</strong>
         </p>
       </div>
 

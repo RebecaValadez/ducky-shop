@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { QuicklinkModule } from 'ngx-quicklink';
 import { WebsiteRoutingModule } from './website-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -14,7 +15,8 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 import { OrderDetailComponent } from './pages/order-detail/order-detail.component';
 import { BuyComponent } from './pages/buy/buy.component';
 import { FooterComponent } from './components/footer/footer.component';
-
+import { AccountComponent } from './pages/account/account.component';
+import { ProductSearchComponent } from './pages/product-search/product-search.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +29,16 @@ import { FooterComponent } from './components/footer/footer.component';
     ProductDetailComponent,
     OrderDetailComponent,
     BuyComponent,
-    FooterComponent
+    FooterComponent,
+    AccountComponent,
+    ProductSearchComponent
   ],
   imports: [
     CommonModule,
     WebsiteRoutingModule,
     QuicklinkModule,
     ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class WebsiteModule { }

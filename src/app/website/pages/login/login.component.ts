@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../../../services/users.service';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,7 @@ import { UsersService } from '../../../services/users.service';
 })
 export class LoginComponent implements OnInit {
 
+  user!: User;
   token!: string;
   flag: boolean = false;
   form!: FormGroup;
@@ -17,7 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private usersService: UsersService,
+    private usersService: UsersService
     ) {
     this.buildForm();
   }
@@ -46,10 +48,20 @@ export class LoginComponent implements OnInit {
     .subscribe( rta => {
       this.token = rta.token;
       if (this.token != null){
-        this.router.navigate(["/home"]);
+        this.flag = false
+        this.usersService.getUserLogged()
+        .subscribe( data => {
+          this.user = data
+        })
+        if( this.user.is_superuser == true){
+          this.router.navigate(["/admin"]);
+        } else{
+          this.router.navigate(["/home"]);
+        }
+      } else if (this.token == null){
+        this.flag = true
       }
     });
-    this.flag = true
   }
 
   register() {

@@ -28,11 +28,11 @@
       <!--dropdown menu-->
 
       <div class="nav-center">
-        <input type="text" class="search">
+        <input [(ngModel)]="productName" type="text" class="search">
       </div>
 
       <div class="nav-right">
-        <a href="" id="submit">
+        <a (click)="productSearch(productName)" id="submit">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="34" height="34"
             viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round"
             stroke-linejoin="round">
@@ -55,7 +55,7 @@
   </button>
 
   <div class="nav-right menu-responsivo">
-    <a href="" class="tool-button">
+    <a (click)="redirectUser()" class="tool-button">
       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="44" height="44"
         viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
         stroke-linejoin="round">
@@ -63,7 +63,7 @@
         <circle cx="12" cy="7" r="4" />
         <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
       </svg>
-      <span>Usuario</span>
+      <span>{{userName}}</span>
     </a>
     <a routerLink="my-cart" class="tool-button cart">
       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="44" height="44"
@@ -114,11 +114,11 @@
       <!--dropdown menu-->
 
       <div class="nav-center">
-        <input type="text" class="search">
+        <input [(ngModel)]="productName" type="text" class="search">
       </div>
 
       <div class="nav-right">
-        <a href="" id="submit">
+        <a (click)="productSearch(productName)" id="submit">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="34" height="34"
             viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round"
             stroke-linejoin="round">
@@ -136,7 +136,7 @@
       <button (click)="toogleMenu()">X</button>
     </div>
     <div>
-      <a href="" class="tool-button">
+      <a (click)="redirectUser()" class="tool-button">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="44" height="44"
           viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
           stroke-linejoin="round">
@@ -144,7 +144,7 @@
           <circle cx="12" cy="7" r="4" />
           <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
         </svg>
-        <span>Usuario</span>
+        <span>{{userName}}</span>
       </a>
     </div>
     <div>
