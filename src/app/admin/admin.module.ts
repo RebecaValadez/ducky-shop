@@ -18,7 +18,7 @@ import { HomeComponent } from './pages/home/home.component';
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
-    QuicklinkModule
+    QuicklinkModule,
   ]
 })
 export class AdminModule { }

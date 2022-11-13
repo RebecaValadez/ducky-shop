@@ -26,8 +26,13 @@ header {
 a,
 a:link,
 a:visited {
+  box-shadow: none;
   text-decoration: none;
   color: white;
+}
+
+a:hover{
+  color: #FCDA05;
 }
 
 .barra-amarilla {

@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
         .subscribe( data => {
           this.user = data
         })
-        if( this.user.is_superuser == true){
+        if(this.user.is_superuser == true){
           this.router.navigate(["/admin"]);
         } else{
           this.router.navigate(["/home"]);

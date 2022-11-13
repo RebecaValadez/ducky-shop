@@ -36,18 +36,6 @@
       </div>
 
       <div class="form_container">
-        <input formControlName="is_superuser" type="text" class="form_input" placeholder="¿ES SUPERUSUARIO?" name="password"/>
-        <div class="messages" [class.active]="isSuperuserFiel!.touched && isSuperuserFiel!.invalid">
-          <p>
-            <strong
-              *ngIf="isSuperuserFiel!.touched && isSuperuserFiel!.hasError('required')">
-              Este campo es requerido
-            </strong>
-          </p>
-        </div>
-      </div>
-
-      <div class="form_container">
         <input formControlName="phone" type="number" class="form_input" placeholder="TELEFONO" name="phone"/>
         <div></div>
       </div>

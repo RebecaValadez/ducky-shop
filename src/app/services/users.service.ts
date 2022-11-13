@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators'
 import { User } from './../models/user.model';
 import { Auth } from './../models/auth.model';
@@ -11,6 +12,7 @@ import { checkToken } from '../interceptors/token.interceptor';
 })
 
 export class UsersService {
+
   apiUrl = 'http://localhost:8000/api';
 
   constructor(
@@ -23,6 +25,10 @@ export class UsersService {
     .pipe(
       tap(response => this.tokenService.saveToken(response.token))
     );
+  }
+
+  logout(){
+    this.tokenService.removeToken()
   }
 
   getUserLogged() {

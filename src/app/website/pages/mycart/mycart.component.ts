@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
+import { UsersService } from '../../../services/users.service';
+import { User } from 'src/app/models/user.model';
+import { AuthGuard } from 'src/app/guards/auth.guard';
 
 @Component({
   selector: 'app-mycart',
@@ -7,11 +10,15 @@ import { Product } from 'src/app/models/product.model';
   styleUrls: ['./mycart.component.scss']
 })
 export class MycartComponent implements OnInit {
-  productos: Array<Product> = [];
 
-  constructor() { }
+  productos: Array<Product> = [];
+  user!: User;
+
+  constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
+    this.getUser()
+
     this.productos.push({
       id: 1,
       code: "string",
@@ -26,4 +33,10 @@ export class MycartComponent implements OnInit {
     });
   }
 
+  getUser() {
+    this.usersService.getUserLogged()
+      .subscribe(data => {
+        this.user = data
+      })
+  }
 }

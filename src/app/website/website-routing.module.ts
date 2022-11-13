@@ -11,6 +11,7 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 import { RegisterComponent } from './pages/register/register.component';
 import { AccountComponent } from './pages/account/account.component';
 import { ProductSearchComponent } from './pages/product-search/product-search.component';
+import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -25,10 +26,6 @@ const routes: Routes = [
       {
         path: 'home',
         component: HomeComponent
-      },
-      {
-        path: 'buy',
-        component: BuyComponent
       },
       {
         path: 'category',
@@ -47,11 +44,18 @@ const routes: Routes = [
       },
       {
         path: 'my-cart',
-        component: MycartComponent,
+        canActivate: [AuthGuard],
+        component: MycartComponent
+      },
+      {
+        path: 'buy',
+        canActivate: [AuthGuard],
+        component: BuyComponent
       },
       {
         path: 'order',
-        component: OrderDetailComponent,
+        canActivate: [AuthGuard],
+        component: OrderDetailComponent
       },
       {
         path: 'account',

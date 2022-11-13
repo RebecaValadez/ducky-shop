@@ -12,15 +12,8 @@ import { Router } from '@angular/router';
 export class ProductSearchComponent implements OnInit {
 
   products: Array<Product> = [];
-  product: Product = {
-    id: 1,
-    code: "2344DFG44",
-    name: "LAPTOP HP",
-    price: 8799,
-    category_id: 2,
-    category_name: "Tecnologia",
-    description: "Procesador: AMD Ryzen 5 3500U Disco duro HDD: 1 TB Memoria RAM: 8 GB DDR4 Pantalla: 14 pulgadas",
-    stock: 7,
+  product: any = {
+    search: ""
   };
   productName!: string;
 
@@ -34,7 +27,8 @@ export class ProductSearchComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.productName = params['name'];
       if (this.productName) {
-        this.product.name = this.productName
+        this.product.search = this.productName
+        console.log(this.product.search)
         this.getProducts();
       }
     });
@@ -44,6 +38,7 @@ export class ProductSearchComponent implements OnInit {
     this.productsService.searchProduct(this.product)
       .subscribe(data => {
         this.products = data.data;
+        console.log(this.products)
       });
   }
 
