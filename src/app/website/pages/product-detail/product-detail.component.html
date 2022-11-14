@@ -6,7 +6,7 @@
     <br>
     <p>Stock disponible: <br> Cantidad: {{producto.stock}} unidad ({{producto.stock}} disponibles)</p>
     <div class="button-container">
-        <button type="button" class="cart" (click)="addToCart()">Agregar al carrito</button>
+        <button type="button" class="cart" (click)="addToCart(producto.id)">Agregar al carrito</button>
         <button type="button" class="buy-now" (click)="buy()">Comprar ahora</button>
     </div>
 </div>
