@@ -1,7 +1,8 @@
-import { Product } from './../models/product.model';
-
 export interface Cart {
+  id: number;
+  user_id: number;
   product_id: number;
-  quantity: number;
-  // product_list: ;  falta definir qué tipo es
+  amount: number;
+  created_at: Date;
+  updated_at: Date;
 }
