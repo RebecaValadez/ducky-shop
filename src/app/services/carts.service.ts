@@ -13,19 +13,19 @@ export class CartsService {
   constructor(private http: HttpClient) { }
 
   insertToCart(data: Partial<Cart>){
-   return this.http.post(`${this.apiUrl}/carts`, data);
+    return this.http.post(`${this.apiUrl}/carts`, data);
   }
 
-  deleteItemFromCart(product_id:number){
-    return this.http.delete(`${this.apiUrl}/carts/${product_id}`);
+  updateAmountProductOnCart(amount: number, data: Partial<Cart>){
+    return this.http.put(`${this.apiUrl}/carts/${amount}`, data)
   }
 
-  getCart(){
-    return this.http.get<Cart[]>(`${this.apiUrl}/carts`);
+  getUserCart(user: number){
+    return this.http.get<any>(`${this.apiUrl}/user-cart/${user}`)
   }
 
-/*  deleteAllFromCart(product_id:number){
-    return this.http.delete(`${this.apiUrl}/carts` + product_id).forEach
+  deleteProductOnCart(product_id: number){
+    return this.http.delete(`${this.apiUrl}/carts/${product_id}`)
   }
-*/
+
 }
