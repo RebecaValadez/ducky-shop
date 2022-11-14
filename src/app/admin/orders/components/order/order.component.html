@@ -1,1 +1,97 @@
-<p>order works!</p>
+<!-- Formulario del usuario  -->
+<body>
+  <div class="contenedor">
+  <section>
+    <form [formGroup]="form" class="form">
+      <div id="Encabezado">
+        <h1>Información del pedido</h1>
+        <br>
+      </div>
+
+      <label>NÚMERO DE ORDEN</label>
+      <div class="form_container">
+        <input formControlName="order_number" type="text" class="form_input" placeholder="NÚMERO DE ORDEN" />
+      </div>
+
+      <label>PRODUCTO</label>
+      <div class="form_container">
+        <input formControlName="product_id" type="text" class="form_input" placeholder="PRODUCTO"/>
+      </div>
+
+      <label>CANTIDAD</label>
+      <div class="form_container">
+        <input formControlName="quantity" type="text" class="form_input" placeholder="CANTIDAD"/>
+      </div>
+
+      <label>TOTAL</label>
+      <div class="form_container">
+        <input formControlName="total_price" type="text" class="form_input" placeholder="TOTAL"/>
+      </div>
+
+      <label>ESTATUS</label>
+      <div class="form_container">
+        <select formControlName="status" class="form_input">
+          <option [value]="false">En proceso</option>
+          <option [value]="true">Completado</option>
+        </select>
+      </div>
+
+    </form>
+  </section>
+
+  <section>
+    <form [formGroup]="form2" class="form">
+      <div id="Encabezado">
+        <h1>Datos de envío</h1>
+        <br />
+      </div>
+
+      <label>NOMBRE</label>
+      <div class="form_container">
+        <input formControlName="full_name" type="text" class="form_input" placeholder="NOMBRE" name="full_name"/>
+      </div>
+
+      <label>TELÉFONO</label>
+      <div class="form_container">
+        <input formControlName="phone" type="number" class="form_input" placeholder="TELEFONO" name="phone"/>
+      </div>
+
+      <label>DIRECCIÓN</label>
+      <div class="form_container">
+        <input formControlName="address_line_1" type="text" class="form_input" placeholder="DIRECCION" name="address_line_1"/>
+      </div>
+
+      <label>COLONIA</label>
+      <div class="form_container">
+        <input formControlName="address_line_2" type="text" class="form_input" placeholder="COLONIA" name="address_line_2"/>
+      </div>
+
+      <label>CÓDIGO POSTAL</label>
+      <div class="form_container">
+        <input formControlName="address_cp" type="number" class="form_input" placeholder="CÓDIGO POSTAL" name="address_cp"/>
+      </div>
+
+      <label>CIUDAD</label>
+      <div class="form_container">
+        <input formControlName="address_city" type="text" class="form_input" placeholder="CIUDAD" name="address_city"/>
+      </div>
+
+      <label>ESTADO</label>
+      <div class="form_container">
+        <input formControlName="address_state" type="text" class="form_input" placeholder="ESTADO" name="address_state"/>
+      </div>
+
+      <label>PAÍS</label>
+      <div class="form_container">
+        <input formControlName="address_country" type="text" class="form_input" placeholder="PAÍS" name="address_country"/>
+      </div>
+    </form>
+  </section>
+</div>
+<br>
+<div class="form_container">
+  <button (click)="save()" type="submit" class="form_cta">
+    <span>Guardar</span>
+  </button>
+</div>
+</body>

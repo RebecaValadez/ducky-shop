@@ -21,6 +21,10 @@ export class OrdersService {
     return this.http.get<any>(`${this.apiUrl}/orders`);
   }
 
+  getOrder(id: number) {
+    return this.http.get<any>(`${this.apiUrl}/orders/${id}`);
+  }
+
   createOrder(data: Partial<Order>) {
     return this.http.post<Order>(`${this.apiUrl}/orders/`, data);
   }
