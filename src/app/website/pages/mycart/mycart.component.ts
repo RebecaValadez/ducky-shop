@@ -6,6 +6,7 @@ import { AuthGuard } from 'src/app/guards/auth.guard';
 import { CartsService } from 'src/app/services/carts.service';
 import { Cart } from 'src/app/models/cart.model';
 import {ProductsService} from 'src/app/services/products.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mycart',
@@ -20,7 +21,8 @@ export class MycartComponent implements OnInit {
 
   constructor(private usersService: UsersService,
               private cartsService:CartsService,
-              private productService:ProductsService) {
+              private productService:ProductsService,
+              private router:Router) {
 
   }
 
@@ -57,6 +59,10 @@ export class MycartComponent implements OnInit {
 
   VaciarCarrito(){
     this.cartsService.clear();
+  }
+
+  RealizarPedido(){
+    this.router.navigate(['/buy_detail']);
   }
 
 }
