@@ -4,13 +4,11 @@ import { QuicklinkModule } from 'ngx-quicklink';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AdminRoutingModule } from './admin-routing.module';
 
-import { OrdersComponent } from './pages/orders/orders.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
-    OrdersComponent,
     LayoutComponent,
     HomeComponent,
   ],
