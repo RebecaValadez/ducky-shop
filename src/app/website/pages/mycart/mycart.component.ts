@@ -39,4 +39,7 @@ export class MycartComponent implements OnInit {
         this.user = data
       })
   }
+
+  
+
 }
