@@ -24,4 +24,8 @@ export class OrdersService {
   createOrder(data: Partial<Order>) {
     return this.http.post<Order>(`${this.apiUrl}/orders/`, data);
   }
+
+  updateOrder(id: number, data: Partial<Order>) {
+    return this.http.put(`${this.apiUrl}/orders/${id}`, data);
+  }
 }
