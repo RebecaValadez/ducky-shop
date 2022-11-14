@@ -34,6 +34,14 @@ export class CartsService {
     localStorage.setItem("Cart", JSON.stringify(cart));
   }
 
+  getCart(){
+    if (localStorage.getItem("Cart") == null){
+      localStorage.setItem("Cart", JSON.stringify([]));
+    }
+    var cart = JSON.parse(localStorage.getItem("Cart") ?? '');
+    return cart;
+  }
+
   buy(){
 
   }

@@ -3,6 +3,9 @@ import { Product } from 'src/app/models/product.model';
 import { UsersService } from '../../../services/users.service';
 import { User } from 'src/app/models/user.model';
 import { AuthGuard } from 'src/app/guards/auth.guard';
+import { CartsService } from 'src/app/services/carts.service';
+import { Cart } from 'src/app/models/cart.model';
+import {ProductsService} from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-mycart',
@@ -13,8 +16,13 @@ export class MycartComponent implements OnInit {
 
   productos: Array<Product> = [];
   user!: User;
+  total : number = 0
 
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService,
+              private cartsService:CartsService,
+              private productService:ProductsService) {
+
+  }
 
   ngOnInit(): void {
     this.getUser()
@@ -31,6 +39,13 @@ export class MycartComponent implements OnInit {
       created_at: new Date(),
       updated_at: new Date()
     });
+    var cart = this.cartsService.getCart()
+
+    cart.forEach((cart:Cart) => {
+       this.productService.getProduct(cart.product_id).subscribe(data=>{
+        this.total = data.data.price;
+       })
+    });
   }
 
   getUser() {
@@ -40,6 +55,8 @@ export class MycartComponent implements OnInit {
       })
   }
 
-  
+  VaciarCarrito(){
+    this.cartsService.clear();
+  }
 
 }
