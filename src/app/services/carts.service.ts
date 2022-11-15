@@ -16,7 +16,7 @@ export class CartsService {
   }
 
   addToCart(data: Partial<Cart>){
-    return this.http.post(`${this.apiUrl}/carts`, data);
+    return this.http.post<any>(`${this.apiUrl}/carts`, data);
   }
 
   updateAmountProductOnCart(cart_id: number, data: Partial<Cart>){

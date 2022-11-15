@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 export class MycartComponent implements OnInit {
 
   productos: Array<Product> = [];
+  carts:Array<[Cart,Product]> = [];
   user!: User;
   total : number = 0
 
@@ -29,6 +30,7 @@ export class MycartComponent implements OnInit {
   ngOnInit(): void {
     this.getUser()
 
+    /*
     this.productos.push({
       id: 1,
       code: "string",
@@ -40,14 +42,23 @@ export class MycartComponent implements OnInit {
       stock: 999999,
       created_at: new Date(),
       updated_at: new Date()
+    });*/
+    //var cart = this.cartsService.getCart()
+    this.cartsService.getUserCart(this.user.id).subscribe(data=>{
+      data.data.forEach((cart:Cart)=>{
+        var product!:Product
+        this.productService.getProduct(cart.product_id).subscribe(data=>{
+          product = data.data;
+         });
+        this.carts.push([cart,product])
+        this.total = cart.amount;
+      });
     });
-    var cart = this.cartsService.getCart()
-
-    cart.forEach((cart:Cart) => {
+    /*cart.forEach((cart:Cart) => {
        this.productService.getProduct(cart.product_id).subscribe(data=>{
         this.total = data.data.price;
        })
-    });
+    });*/
   }
 
   getUser() {
@@ -57,10 +68,10 @@ export class MycartComponent implements OnInit {
       })
   }
 
-  VaciarCarrito(){
+  EliminarCarrito(id_cart:number){
     if (localStorage.getItem("cart_id") != null){
-      this.cartsService.deleteProductOnCart(0).subscribe(data => {
-        
+      this.cartsService.deleteProductOnCart(id_cart).subscribe(data => {
+
       });
     }
   }

@@ -5,8 +5,8 @@ import { Cart } from 'src/app/models/cart.model';
 import { ProductsService } from '../../../services/products.service';
 import { Router } from '@angular/router';
 import {CartsService} from '../../../services/carts.service'
-
-
+import { UsersService } from '../../../services/users.service';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-product-detail',
@@ -16,11 +16,13 @@ import {CartsService} from '../../../services/carts.service'
 export class ProductDetailComponent implements OnInit {
   producto!: Product;
   productId!: number;
+  user!: User;
 
   constructor(
     private route: ActivatedRoute,
     private productsService: ProductsService,
     private cartService:CartsService,
+    private usersService: UsersService,
     private router: Router
     ) { }
 
@@ -42,12 +44,19 @@ export class ProductDetailComponent implements OnInit {
       });
   }
 
-  addToCart(product : number){
+  getUser() {
+    this.usersService.getUserLogged()
+      .subscribe(data => {
+        this.user = data
+      })
+  }
+
+  addToCart(){
     var cart! : Cart;
 
-    cart.product_id = product
-    cart.amount = 1;
-    //this.cartService.addProduct(cart);
+    cart.product_id = this.producto.id;
+    cart.amount = this.producto.price;
+    cart.user_id = this.user.id;
     this.cartService.addToCart(cart)
     .subscribe(data => {
       localStorage.setItem('cart_id', data.data.id);
