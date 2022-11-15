@@ -58,7 +58,11 @@ export class MycartComponent implements OnInit {
   }
 
   VaciarCarrito(){
-    this.cartsService.clear();
+    if (localStorage.getItem("cart_id") != null){
+      this.cartsService.deleteProductOnCart(0).subscribe(data => {
+        
+      });
+    }
   }
 
   RealizarPedido(){

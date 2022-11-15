@@ -46,8 +46,12 @@ export class ProductDetailComponent implements OnInit {
     var cart! : Cart;
 
     cart.product_id = product
-    cart.quantity = 1;
-    this.cartService.addProduct(cart);
+    cart.amount = 1;
+    //this.cartService.addProduct(cart);
+    this.cartService.addToCart(cart)
+    .subscribe(data => {
+      localStorage.setItem('cart_id', data.data.id);
+    });
   }
 
   buy(){
