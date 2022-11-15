@@ -4,7 +4,7 @@ export interface Product {
   name: string;
   price: number;
   category_id: number;
-  category_name: string;
+  category_name?: string;
   description: string;
   stock: number;
   created_at: Date;

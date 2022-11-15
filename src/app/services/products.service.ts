@@ -32,8 +32,8 @@ export class ProductsService {
     return this.http.post(`${this.apiUrl}/products/`, data);
   }
 
-  updateProduct(id: number, data: Partial<Product>) {
-    return this.http.put(`${this.apiUrl}/products/${id}`, data);
+  updateProduct(id: number, data: any) {
+    return this.http.put<Product>(`${this.apiUrl}/products/${id}`, data);
   }
 
   deleteProduct(id: number) {

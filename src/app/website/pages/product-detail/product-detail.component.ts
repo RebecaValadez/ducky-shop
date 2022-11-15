@@ -17,6 +17,12 @@ export class ProductDetailComponent implements OnInit {
   producto!: Product;
   productId!: number;
   user!: User;
+  cart: Cart = {
+    id: 1,
+    product_id: 0,
+    user_id: 0,
+    amount: 0
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -27,9 +33,9 @@ export class ProductDetailComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.getUser()
     this.route.params.subscribe((params: Params) => {
       this.productId = params['id'];
-      console.log(params['id']);
       if (this.productId) {
         this.getProduct();
       }
@@ -40,7 +46,8 @@ export class ProductDetailComponent implements OnInit {
     this.productsService.getProduct(this.productId)
       .subscribe(data => {
         this.producto = data.data;
-        console.log(this.producto);
+        this.cart.product_id = this.producto.id;
+        this.cart.amount = Math.round(this.producto.price);
       });
   }
 
@@ -48,19 +55,28 @@ export class ProductDetailComponent implements OnInit {
     this.usersService.getUserLogged()
       .subscribe(data => {
         this.user = data
+        this.cart.user_id = this.user.id;
       })
   }
 
   addToCart(){
-    var cart! : Cart;
-
-    cart.product_id = this.producto.id;
-    cart.amount = this.producto.price;
-    cart.user_id = this.user.id;
-    this.cartService.addToCart(cart)
+    // this.updateProduct()
+    console.log(this.cart)
+    console.log(JSON.stringify(this.cart));
+    this.cartService.addToCart(JSON.stringify(this.cart))
     .subscribe(data => {
-      localStorage.setItem('cart_id', data.data.id);
-    });
+      console.log("data")
+    })
+  }
+
+  private updateProduct() {
+    this.producto.stock = this.producto.stock - 1
+    console.log(JSON.stringify(this.producto))
+    const data = JSON.stringify(this.producto)
+    this.productsService.updateProduct(this.productId, data)
+      // .subscribe(data => {
+      //   this.producto = data
+      // });
   }
 
   buy(){

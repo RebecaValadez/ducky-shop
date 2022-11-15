@@ -1,5 +1,5 @@
 .container{
-    margin: 100px 300px;
+    margin: 20px;
     padding: 20px;
     border: 1px solid gray;
 }
@@ -15,6 +15,11 @@
     margin-right: 30px;
 }
 
+.cart:hover{
+  background-color: #fcda05;
+  color: black;
+}
+
 .buy-now{
     background-color: #fcda05;
     height: 40px;
@@ -24,7 +29,39 @@
     border: 0;
 }
 
+.buy-now:hover{
+  background-color: #393d46;
+  color: white;
+}
+
 .button-container{
     display: flex;
     justify-content: center;
+}
+
+/* Escritorio  */
+@media screen and (min-width: 768px) {
+  .container{
+    margin: 100px 200px;
+    padding: 30px;
+    border: 1px solid gray;
+  }
+}
+
+/* Tablets y phablets */
+@media screen and (min-width: 576px) and (max-width: 767px){
+  .container{
+    margin: 100px;
+    padding: 30px;
+    border: 1px solid gray;
+}
+}
+
+/* Teléfonos */
+@media screen and (max-width: 575px){
+  .container{
+    margin: 50px;
+    padding: 30px;
+    border: 1px solid gray;
+  }
 }

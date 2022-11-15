@@ -7,16 +7,20 @@ import { Cart } from '../models/cart.model';
 })
 export class CartsService {
 
+  headers = {
+    "Access-Control-Allow-Origin": "*"
+  }
+
   apiUrl = 'http://localhost:8000/api';
 
   constructor(private http: HttpClient) { }
 
   getUserCart(user_id: number){
-    return this.http.get<any>(`${this.apiUrl}/user-cart/${user_id}`)
+    return this.http.get<any>(`${this.apiUrl}/user-cart/${user_id}`, {headers: this.headers})
   }
 
-  addToCart(data: Partial<Cart>){
-    return this.http.post<any>(`${this.apiUrl}/carts`, data);
+  addToCart(data: any){
+    return this.http.post(`${this.apiUrl}/carts`, data);
   }
 
   updateAmountProductOnCart(cart_id: number, data: Partial<Cart>){

@@ -1,3 +1,90 @@
+.cart{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0px;
+}
+
+.buy-now{
+  background-color: #fcda05;
+  height: 40px;
+  padding: 0 20px;
+  font-size: 15px;
+  font-weight: bold;
+  border: 0;
+}
+
+.buy-now:hover{
+background-color: #393d46;
+color: white;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.container{
+  margin: 50px 300px;
+  padding: 30px;
+  border: 1px solid gray;
+}
+
+.text{
+  text-align: center;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  // border-collapse: collapse;
+  // border: 3px solid #222831;
+}
+
+thead th:nth-child(1) {
+  width: 30%;
+}
+
+thead th:nth-child(2) {
+  width: 30%;
+}
+
+thead th:nth-child(3) {
+  width: 30%;
+}
+
+th, td {
+  padding: 10px;
+}
+
+/* Escritorio  */
+@media screen and (min-width: 768px) {
+  .container{
+    margin: 50px 300px;
+    padding: 30px;
+    border: 1px solid gray;
+  }
+}
+
+/* Tablets y phablets */
+@media screen and (min-width: 576px) and (max-width: 767px){
+  .container{
+    margin: 50px;
+    padding: 30px;
+    border: 1px solid gray;
+}
+}
+
+/* Teléfonos */
+@media screen and (max-width: 575px){
+  .container{
+    margin: 50px;
+    padding: 30px;
+    border: 1px solid gray;
+  }
+}
+
+
 ul{
     list-style-type: none;
     padding: 0;
