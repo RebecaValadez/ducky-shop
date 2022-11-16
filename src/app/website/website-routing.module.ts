@@ -12,6 +12,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AccountComponent } from './pages/account/account.component';
 import { ProductSearchComponent } from './pages/product-search/product-search.component';
 import { AuthGuard } from '../guards/auth.guard';
+import { BuyDetailComponent } from './pages/buy-detail/buy-detail.component';
 
 const routes: Routes = [
   {
@@ -60,6 +61,10 @@ const routes: Routes = [
       {
         path: 'account',
         component: AccountComponent,
+      },
+      {
+        path: 'buy-detail',
+        component: BuyDetailComponent,
       },
     ]
   },

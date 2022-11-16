@@ -17,6 +17,7 @@ import { BuyComponent } from './pages/buy/buy.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AccountComponent } from './pages/account/account.component';
 import { ProductSearchComponent } from './pages/product-search/product-search.component';
+import { BuyDetailComponent } from './pages/buy-detail/buy-detail.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProductSearchComponent } from './pages/product-search/product-search.co
     BuyComponent,
     FooterComponent,
     AccountComponent,
-    ProductSearchComponent
+    ProductSearchComponent,
+    BuyDetailComponent
   ],
   imports: [
     CommonModule,
