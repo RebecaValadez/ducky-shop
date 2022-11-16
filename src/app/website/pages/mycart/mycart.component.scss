@@ -30,8 +30,12 @@ color: white;
   border: 1px solid gray;
 }
 
+.headers{
+  text-align: left;
+}
+
 .text{
-  text-align: center;
+  text-align: left;
 }
 
 table {
@@ -46,11 +50,14 @@ thead th:nth-child(1) {
 }
 
 thead th:nth-child(2) {
-  width: 30%;
+  width: 20%;
 }
 
 thead th:nth-child(3) {
   width: 30%;
+}
+thead th:nth-child(4) {
+  width: 20%;
 }
 
 th, td {
@@ -78,8 +85,8 @@ th, td {
 /* Teléfonos */
 @media screen and (max-width: 575px){
   .container{
-    margin: 50px;
-    padding: 30px;
+    margin: 40px;
+    padding: 30px 20px;
     border: 1px solid gray;
   }
 }

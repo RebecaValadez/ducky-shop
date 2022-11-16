@@ -17,12 +17,13 @@ export class ProductDetailComponent implements OnInit {
   producto!: Product;
   productId!: number;
   user!: User;
-  cart: Cart = {
-    id: 1,
-    product_id: 0,
-    user_id: 0,
-    amount: 0
-  };
+  cart!: Cart
+  // = {
+  //   id: 1,
+  //   product_id: 0,
+  //   user_id: 0,
+  //   amount: 0,
+  // };
 
   constructor(
     private route: ActivatedRoute,
@@ -60,23 +61,12 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addToCart(){
-    // this.updateProduct()
     console.log(this.cart)
     console.log(JSON.stringify(this.cart));
     this.cartService.addToCart(JSON.stringify(this.cart))
     .subscribe(data => {
       console.log("data")
     })
-  }
-
-  private updateProduct() {
-    this.producto.stock = this.producto.stock - 1
-    console.log(JSON.stringify(this.producto))
-    const data = JSON.stringify(this.producto)
-    this.productsService.updateProduct(this.productId, data)
-      // .subscribe(data => {
-      //   this.producto = data
-      // });
   }
 
   buy(){

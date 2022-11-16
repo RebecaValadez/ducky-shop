@@ -17,7 +17,8 @@ export class MycartComponent implements OnInit {
   user!: User;
   user_id!: number;
   products: Cart[] = [];
-  total : number = 0
+  total : number = 0;
+  subtotal : number = 0;
 
   constructor(
     private usersService: UsersService,
@@ -43,9 +44,30 @@ export class MycartComponent implements OnInit {
     this.cartsService.getUserCart(this.user_id)
     .subscribe(data => {
       this.products = data.data
-      this.getNameProduct()
+      this.getProduct()
       this.totalBuy()
     })
+  }
+
+  getProduct(){
+    this.products.map(product => {
+      this.productService.getProduct(product.product_id)
+      .subscribe(data => {
+        product.product_name = data.data.name
+        product.product_price = data.data.price
+        product.product_subtotal = (data.data.price * product.amount)
+      })
+    });
+  }
+
+  totalBuy(){
+    this.products.forEach(product => {
+      // this.total = this.total + product.product_subtotal
+    });
+  }
+
+  updateQuantityProducts(product_id: number){
+
   }
 
   deleteProduct(product_id: number){
@@ -54,24 +76,6 @@ export class MycartComponent implements OnInit {
       this.total = 0
       this.getCartUser()
     })
-  }
-
-  getNameProduct(){
-    this.products.map(product => {
-      console.log(product)
-      this.productService.getProduct(product.product_id)
-      .subscribe(data => {
-        console.log(data)
-        product.product_name = data.data.name
-        console.log(product)
-      })
-    });
-  }
-
-  totalBuy(){
-    this.products.forEach(product => {
-      this.total = this.total + product.amount
-    });
   }
 
   buy(){

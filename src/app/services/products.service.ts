@@ -7,8 +7,8 @@ import { Product } from './../models/product.model';
 })
 export class ProductsService {
 
-  apiUrl = 'http://ecommerceapi.x10.mx/api';
-  //apiUrl = 'http://localhost:8000/api';
+  //apiUrl = 'http://ecommerceapi.x10.mx/api';
+  apiUrl = 'http://localhost:8000/api';
 
   constructor(private http: HttpClient) { }
 
