@@ -15,6 +15,7 @@ export class NavComponent implements OnInit {
   user!: User;
   userName: String = "Inciar sesión";
   productName: string = "";
+  counter: number = 0
 
   constructor(
     private elem: ElementRef,
