@@ -17,13 +17,14 @@ export class ProductDetailComponent implements OnInit {
   producto!: Product;
   productId!: number;
   user!: User;
-  cart!: Cart
-  // = {
-  //   id: 1,
-  //   product_id: 0,
-  //   user_id: 0,
-  //   amount: 0,
-  // };
+  cart: Cart  = {
+    id: 1,
+    product_id: 0,
+    user_id: 0,
+    quantity: 0,
+    amount: 0,
+    product_stock: 0
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -48,7 +49,7 @@ export class ProductDetailComponent implements OnInit {
       .subscribe(data => {
         this.producto = data.data;
         this.cart.product_id = this.producto.id;
-        this.cart.amount = Math.round(this.producto.price);
+        this.cart.quantity = 1
       });
   }
 
@@ -61,12 +62,9 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addToCart(){
-    console.log(this.cart)
-    console.log(JSON.stringify(this.cart));
-    this.cartService.addToCart(JSON.stringify(this.cart))
-    .subscribe(data => {
-      console.log("data")
-    })
+    // console.log(JSON.stringify(this.cart));
+    this.cartService.addToCart(this.cart)
+    .subscribe(() => {})
   }
 
   buy(){

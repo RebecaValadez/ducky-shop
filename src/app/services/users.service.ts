@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators'
 import { User } from './../models/user.model';
 import { Auth } from './../models/auth.model';
 import { TokenService } from './../services/token.service';
 import { checkToken } from '../interceptors/token.interceptor';
+import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ import { checkToken } from '../interceptors/token.interceptor';
 
 export class UsersService {
 
-  apiUrl = 'http://localhost:8000/api';
+  private apiUrl = `${environment.API_URL}`;
 
   constructor(
     private http: HttpClient,

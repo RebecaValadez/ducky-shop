@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Cart } from '../models/cart.model';
+import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class CartsService {
     "Access-Control-Allow-Origin": "*"
   }
 
-  apiUrl = 'http://localhost:8000/api';
+  private apiUrl = `${environment.API_URL}`;
 
   constructor(private http: HttpClient) { }
 
@@ -23,8 +24,8 @@ export class CartsService {
     return this.http.post(`${this.apiUrl}/carts`, data);
   }
 
-  updateAmountProductOnCart(cart_id: number, data: Partial<Cart>){
-    return this.http.put(`${this.apiUrl}/carts/${cart_id}`, data)
+  updateQuantityProductOnCart(cart_id: number, data: any){
+    return this.http.put<any>(`${this.apiUrl}/carts/${cart_id}`, data)
   }
 
   deleteProductOnCart(cart_id: number){
