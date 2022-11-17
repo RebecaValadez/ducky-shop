@@ -56,5 +56,5 @@
   </div>
 </div>
 <div class="button-container">
-  <button type="button" class="buy-now" (click)="buy()">Comprar</button>
+  <button *ngIf="total != 0" type="button" class="buy-now" (click)="buy()">Comprar</button>
 </div>
