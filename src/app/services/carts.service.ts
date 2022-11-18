@@ -21,7 +21,7 @@ export class CartsService {
   }
 
   addToCart(data: any){
-    return this.http.post(`${this.apiUrl}/carts`, data);
+    return this.http.post(`${this.apiUrl}/carts`, data, {headers: this.headers});
   }
 
   updateQuantityProductOnCart(cart_id: number, data: any){

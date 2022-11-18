@@ -45,20 +45,10 @@ export class MycartComponent implements OnInit {
     this.cartsService.getUserCart(this.user_id)
     .subscribe(data => {
       this.products = data.data
-      this.getProduct()
+      console.log(data.data)
+      // this.getProduct()
       this.totalBuy()
     })
-  }
-
-  getProduct(){
-    this.products.map(product => {
-      this.productService.getProduct(product.product_id)
-      .subscribe(data => {
-        product.product_name = data.data.name
-        product.product_price = data.data.price
-        product.product_stock = data.data.stock
-      })
-    });
   }
 
   totalBuy(){
@@ -104,8 +94,20 @@ export class MycartComponent implements OnInit {
   }
 
   buy(){
-    this.router.navigate(['/buy']);
+    this.router.navigate(['/shipping-information']);
   }
+
+  // getProduct(){
+  //   this.products.map(product => {
+  //     this.productService.getProduct(product.product_id)
+  //     .subscribe(data => {
+  //       product.product_name = data.data.name
+  //       product.product_price = data.data.price
+  //       product.product_stock = data.data.stock
+  //     })
+  //   });
+  // }
+
   // ngOnInit(): void {
   //   this.getUser()
 

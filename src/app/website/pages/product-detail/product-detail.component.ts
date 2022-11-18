@@ -17,13 +17,22 @@ export class ProductDetailComponent implements OnInit {
   producto!: Product;
   productId!: number;
   user!: User;
-  cart: Cart  = {
+  cart: Cart = {
     id: 1,
     product_id: 0,
     user_id: 0,
     quantity: 0,
     amount: 0,
-    product_stock: 0
+    product_stock: 0,
+    product: {
+      id: 0,
+      code: "",
+      name: "",
+      price: 0,
+      category_id: 0,
+      description: "",
+      stock: 0
+    }
   };
 
   constructor(
@@ -68,6 +77,8 @@ export class ProductDetailComponent implements OnInit {
   }
 
   buy(){
-    this.router.navigate(['/buy']);
+    this.cartService.addToCart(this.cart)
+    .subscribe(() => {})
+    this.router.navigate(['/shipping-information']);
   }
 }

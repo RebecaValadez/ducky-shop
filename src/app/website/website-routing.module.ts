@@ -13,6 +13,8 @@ import { AccountComponent } from './pages/account/account.component';
 import { ProductSearchComponent } from './pages/product-search/product-search.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { BuyDetailComponent } from './pages/buy-detail/buy-detail.component';
+import { ShippingInformationComponent } from './pages/shipping-information/shipping-information.component';
+import { PaymentMethodComponent } from './pages/payment-method/payment-method.component';
 
 const routes: Routes = [
   {
@@ -60,7 +62,18 @@ const routes: Routes = [
       },
       {
         path: 'account',
+        canActivate: [AuthGuard],
         component: AccountComponent,
+      },
+      {
+        path: 'shipping-information',
+        canActivate: [AuthGuard],
+        component: ShippingInformationComponent,
+      },
+      {
+        path: 'payment-method',
+        canActivate: [AuthGuard],
+        component: PaymentMethodComponent,
       },
       {
         path: 'buy-detail',

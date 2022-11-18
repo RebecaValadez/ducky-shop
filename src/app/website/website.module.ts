@@ -18,6 +18,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AccountComponent } from './pages/account/account.component';
 import { ProductSearchComponent } from './pages/product-search/product-search.component';
 import { BuyDetailComponent } from './pages/buy-detail/buy-detail.component';
+import { ShippingInformationComponent } from './pages/shipping-information/shipping-information.component';
+import { PaymentMethodComponent } from './pages/payment-method/payment-method.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { BuyDetailComponent } from './pages/buy-detail/buy-detail.component';
     FooterComponent,
     AccountComponent,
     ProductSearchComponent,
-    BuyDetailComponent
+    BuyDetailComponent,
+    ShippingInformationComponent,
+    PaymentMethodComponent
   ],
   imports: [
     CommonModule,

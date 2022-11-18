@@ -13,7 +13,7 @@ export class CardsService {
   constructor(private http: HttpClient) { }
 
   getCard(id: number) {
-    return this.http.get<any>(`${this.apiUrl}/card_by_user/${id}`);
+    return this.http.get<any>(`${this.apiUrl}/card-by-user/${id}`);
   }
 
   createCard(data: Partial<Card>) {

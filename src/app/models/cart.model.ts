@@ -1,3 +1,5 @@
+import { Product } from "./product.model";
+
 export interface Cart {
   id: number;
   user_id: number;
@@ -9,4 +11,5 @@ export interface Cart {
   product_name?: string;
   product_price?: number;
   product_stock: number;
+  product: Product
 }

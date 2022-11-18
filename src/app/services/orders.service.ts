@@ -21,8 +21,8 @@ export class OrdersService {
     return this.http.get<any>(`${this.apiUrl}/orders`);
   }
 
-  getOrder(id: number) {
-    return this.http.get<any>(`${this.apiUrl}/orders/${id}`);
+  getOrder(order_id: number) {
+    return this.http.get<any>(`${this.apiUrl}/order-by-order-number/${order_id}`);
   }
 
   createOrder(data: Partial<Order>) {

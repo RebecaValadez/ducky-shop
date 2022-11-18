@@ -11,6 +11,7 @@
   font-size: 15px;
   font-weight: bold;
   border: 0;
+  border-radius: 15px;
 }
 
 .buy-now:hover{
@@ -22,12 +23,14 @@ color: white;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  border-radius: 15px;
 }
 
 .container{
   margin: 50px 300px;
   padding: 30px;
   border: 1px solid gray;
+  border-radius: 15px;
 }
 
 .headers{
