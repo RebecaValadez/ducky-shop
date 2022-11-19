@@ -56,11 +56,6 @@ const routes: Routes = [
         component: BuyComponent
       },
       {
-        path: 'order',
-        canActivate: [AuthGuard],
-        component: OrderDetailComponent
-      },
-      {
         path: 'account',
         canActivate: [AuthGuard],
         component: AccountComponent,
@@ -77,7 +72,13 @@ const routes: Routes = [
       },
       {
         path: 'buy-detail',
+        canActivate: [AuthGuard],
         component: BuyDetailComponent,
+      },
+      {
+        path: 'order-detail',
+        canActivate: [AuthGuard],
+        component: OrderDetailComponent
       },
     ]
   },

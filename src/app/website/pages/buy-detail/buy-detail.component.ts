@@ -7,6 +7,7 @@ import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
 import { Card } from 'src/app/models/card.model';
 import { CardsService } from 'src/app/services/cards.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buy-detail',
@@ -31,7 +32,8 @@ export class BuyDetailComponent implements OnInit {
     private ordersService: OrdersService,
     private usersService: UsersService,
     private cartsService: CartsService,
-    private cardsService: CardsService
+    private cardsService: CardsService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -44,6 +46,11 @@ export class BuyDetailComponent implements OnInit {
         this.user = data
         this.user_id = this.user.id
         this.order.user_id = this.user_id
+        this.usersService.getUser(this.user.id)
+        .subscribe(data => {
+          this.user = data
+          console.log(this.user)
+        })
         this.getCard()
         this.getCartUser()
       })
@@ -53,6 +60,7 @@ export class BuyDetailComponent implements OnInit {
     this.cardsService.getCard(this.user_id)
     .subscribe(data => {
       this.cards = data.data
+      console.log(this.cards[0])
     })
   }
 
@@ -82,5 +90,6 @@ export class BuyDetailComponent implements OnInit {
     //     this.cartsService.deleteProductOnCart(cart.id)
     //   })
     // });
+    this.router.navigate(['/order-detail'])
   }
 }

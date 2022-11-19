@@ -99,7 +99,10 @@ export class NavComponent implements OnInit {
     this.usersService.getUserLogged()
       .subscribe(data => {
         this.user = data
-        this.userName = this.user.full_name
+        this.usersService.getUser(this.user.id)
+        .subscribe(data => {
+          this.userName = data.full_name
+        })
       })
   }
 

@@ -86,9 +86,14 @@ export class AccountComponent implements OnInit {
   getUser() {
     this.usersService.getUserLogged()
       .subscribe(data => {
-        this.form.patchValue(data);
-        this.user = data
-        this.user_id = this.user.id
+        console.log(data)
+        this.usersService.getUser(data.id)
+        .subscribe(data => {
+          console.log(data)
+          this.form.patchValue(data);
+          this.user = data
+          this.user_id = this.user.id
+        })
       })
   }
 }
