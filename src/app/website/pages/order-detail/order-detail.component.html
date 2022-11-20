@@ -22,11 +22,11 @@
       <th>Subtotal</th>
     </thead>
 
-    <tbody *ngFor="let product of products">
+    <tbody *ngFor="let product of carts">
       <tr class="text">
         <td>{{product.product.name}}</td>
         <td>${{product.product.price}}</td>
-        <td>${{product.amount}}</td>
+        <td>${{product.quantity}}</td>
       </tr>
     </tbody>
   </table>
