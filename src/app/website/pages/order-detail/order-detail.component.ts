@@ -23,7 +23,8 @@ export class OrderDetailComponent implements OnInit {
   order!: Order
   orders!: Order[];
   order_number!: number;
-  fecha = Date.now()
+  fecha = new Date();
+  fechaF!: string;
 
   constructor(
     private ordersService: OrdersService,
@@ -35,7 +36,7 @@ export class OrderDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser()
-
+    this.fechaF = this.fecha.toLocaleDateString()
     this.route.params.subscribe((params: Params) => {
       this.order_number = params['order'];
       console.log(params['order'])
@@ -45,6 +46,11 @@ export class OrderDetailComponent implements OnInit {
       .subscribe(data => {
 
         console.log(data)
+
+        this.order = data[0]
+        console.log(this.order)
+        console.log(this.order.user_id)
+        // console.log(data[0].'1291897')
 
       //   this.orders = data.data["1"]
       //   console.log(this.orders)
