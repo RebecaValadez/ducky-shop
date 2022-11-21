@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LayoutComponent } from './components/layout/layout.component';
-import { BuyComponent } from './pages/buy/buy.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MycartComponent } from './pages/mycart/mycart.component';
@@ -51,11 +50,6 @@ const routes: Routes = [
         component: MycartComponent
       },
       {
-        path: 'buy',
-        canActivate: [AuthGuard],
-        component: BuyComponent
-      },
-      {
         path: 'account',
         canActivate: [AuthGuard],
         component: AccountComponent,
@@ -76,7 +70,7 @@ const routes: Routes = [
         component: BuyDetailComponent,
       },
       {
-        path: 'order-detail',
+        path: 'order-detail/:order',
         canActivate: [AuthGuard],
         component: OrderDetailComponent
       },

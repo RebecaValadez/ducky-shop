@@ -13,7 +13,6 @@ import { RegisterComponent } from './pages/register/register.component';
 import { MycartComponent } from './pages/mycart/mycart.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { OrderDetailComponent } from './pages/order-detail/order-detail.component';
-import { BuyComponent } from './pages/buy/buy.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AccountComponent } from './pages/account/account.component';
 import { ProductSearchComponent } from './pages/product-search/product-search.component';
@@ -31,13 +30,12 @@ import { PaymentMethodComponent } from './pages/payment-method/payment-method.co
     MycartComponent,
     ProductDetailComponent,
     OrderDetailComponent,
-    BuyComponent,
     FooterComponent,
     AccountComponent,
     ProductSearchComponent,
     BuyDetailComponent,
     ShippingInformationComponent,
-    PaymentMethodComponent
+    PaymentMethodComponent,
   ],
   imports: [
     CommonModule,

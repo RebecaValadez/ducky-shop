@@ -3,43 +3,6 @@
 </div>
 <div class="container">
 
-  <div class="pedido">
-    <div>
-      <h4>Número de orden</h4>
-      <p>{{order.order_number}}</p>
-    </div>
-    <div>
-      <h4>Fecha</h4>
-      <p>Poner fecha de hoy</p>
-    </div>
-  </div>
-
-  <h3>Productos</h3>
-  <table>
-    <thead class="headers">
-      <th>Producto</th>
-      <th>Precio</th>
-      <th>Subtotal</th>
-    </thead>
-
-    <tbody *ngFor="let product of carts">
-      <tr class="text">
-        <td>{{product.product.name}}</td>
-        <td>${{product.product.price}}</td>
-        <td>${{product.quantity}}</td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="row">
-    <div class="row-left">
-      <h4>Total: $</h4>
-      <p>{{total}}</p>
-    </div>
-    <div class="clear"></div>
-  </div>
-
-  <hr>
-
   <h3>Datos de envío</h3>
   <div class="datos-envio">
     <div>
@@ -82,6 +45,44 @@
       <input class="input2" type="text" disabled value="{{user.address_cp}}">
     </div>
   </div>
+
+  <br>
+  <hr>
+
+  <!-- <div class="pedido">
+    <div>
+      <h4>Número de orden</h4>
+      <p>{{order.order_number}}</p>
+    </div>
+    <div>
+      <h4>Fecha</h4>
+      <p>Poner fecha de hoy</p>
+    </div>
+  </div>
+
+  <h3>Productos</h3>
+  <table>
+    <thead class="headers">
+      <th>Producto</th>
+      <th>Precio</th>
+      <th>Subtotal</th>
+    </thead>
+
+    <tbody *ngFor="let product of carts">
+      <tr class="text">
+        <td>{{product.product.name}}</td>
+        <td>${{product.product.price}}</td>
+        <td>${{product.quantity}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="row-left">
+      <h4>Total: $</h4>
+      <p>{{total}}</p>
+    </div>
+    <div class="clear"></div>
+  </div> -->
 </div>
 <div class="button-container">
   <button type="button" class="buy-now" (click)="backHome()">Regresar al inicio</button>

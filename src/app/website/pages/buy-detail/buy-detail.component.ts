@@ -23,9 +23,9 @@ export class BuyDetailComponent implements OnInit {
   total: number = 0;
   order: Order = {
     id: 0,
-    order_number: 2,
+    order_number: 0,
     cart_id: 0,
-    user_id: 2
+    user_id: 0
   }
   order_number: number = 0
 
@@ -50,7 +50,7 @@ export class BuyDetailComponent implements OnInit {
         this.usersService.getUser(this.user.id)
           .subscribe(data => {
             this.user = data
-            console.log(this.user)
+            // console.log(this.user)
           })
         this.getCard()
         this.getCartUser()
@@ -61,7 +61,7 @@ export class BuyDetailComponent implements OnInit {
     this.cardsService.getCard(this.user_id)
       .subscribe(data => {
         this.cards = data.data
-        console.log(this.cards[0])
+        // console.log(this.cards[0])
       })
   }
 
@@ -80,18 +80,19 @@ export class BuyDetailComponent implements OnInit {
   }
 
   createOrder() {
-    var order_number: number = Date.now()
+    console.log("Crear orden")
+    var order_number: number = Math.round(Math.sqrt(Date.now()))
     this.order.order_number = order_number
     this.order.user_id = this.user.id
-    var ord!: Order[];
+
     this.products.forEach(cart => {
-      //El número de orden debe ser el mismo para los carritos
       this.order.cart_id = cart.id
-
-      var aux: Order = this.order
-      ord.push(aux)
-
-      this.ordersService.createOrder(this.order).subscribe(() => { })
+      console.log(cart.id)
+      console.log(this.order)
+      this.ordersService.createOrder(this.order)
+      .subscribe(() => {
+        console.log("se ha creado la orden")
+       })
     });
 
     var pay: Payment = {
@@ -101,8 +102,7 @@ export class BuyDetailComponent implements OnInit {
       amount: this.total
     }
 
-    localStorage.setItem("order", JSON.stringify(ord))
+    this.router.navigate(['/order-detail', order_number]);
 
-    this.router.navigate(['/order-detail'], { queryParams: { order: order_number } })
   }
 }

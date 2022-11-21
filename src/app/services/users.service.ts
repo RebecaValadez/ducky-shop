@@ -52,6 +52,6 @@ export class UsersService {
   }
 
   updateUser(id: number, data: Partial<User>) {
-    return this.http.put<User>(`${this.apiUrl}/auth/users/${id}/`, data, {context: checkToken()});
+    return this.http.put(`${this.apiUrl}/auth/users/${id}/`, data, {context: checkToken()});
   }
 }

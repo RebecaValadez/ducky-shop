@@ -20,6 +20,8 @@ export class OrdersComponent implements OnInit {
   getOrders() {
     this.ordersService.getAllOrders()
       .subscribe((data: any) => {
+        console.log(data[0])
+        console.log(data.data.data)
         this.orders = data.data;
       });
   }
