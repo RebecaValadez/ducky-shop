@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from '../../../../models/order.model';
 import { OrdersService } from '../../../../services/orders.service';
+import { OrderAdmin } from 'src/app/models/order-admin.model';
 
 @Component({
   selector: 'app-orders',
@@ -9,7 +10,8 @@ import { OrdersService } from '../../../../services/orders.service';
 })
 export class OrdersComponent implements OnInit {
 
-  public orders: Order[] = [];
+  public orders: OrderAdmin[] = [];
+  id: number = 0
 
   constructor(private ordersService: OrdersService) { }
 
@@ -20,9 +22,15 @@ export class OrdersComponent implements OnInit {
   getOrders() {
     this.ordersService.getAllOrders()
       .subscribe((data: any) => {
-        console.log(data[0])
-        console.log(data.data.data)
-        this.orders = data.data;
+        // console.log(data)
+        this.orders = data
+        // console.log(this.orders)
+
+        this.orders.forEach(order => {
+          this.id++;
+          order.id = this.id;
+          console.log(order)
+        })
       });
   }
 }

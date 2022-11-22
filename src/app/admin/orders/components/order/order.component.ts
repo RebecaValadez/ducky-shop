@@ -14,10 +14,9 @@ import { ProductsService } from 'src/app/services/products.service';
 export class OrderComponent implements OnInit {
 
   form!: FormGroup;
-  form2!: FormGroup;
   user!: User;
   user_id!: number;
-  order_id!: number;
+  order_number!: number;
   product_id!: number;
   product_name!: string
 
@@ -30,15 +29,26 @@ export class OrderComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.buildForm();
-    this.buildForm2();
   }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      this.order_id = params['id'];
-      if (this.order_id) {
-        this.getOrder();
-      }
+      this.order_number = params['id'];
+      console.log(this.order_number)
+
+      this.ordersService.getOrder(this.order_number)
+      .subscribe(data => {
+        console.log(data[0].user_id)
+        this.user_id = data[0].user_id
+        this.usersService.getUser(this.user_id)
+        .subscribe(data => {
+          console.log(data);
+          this.user = data
+        });
+      })
+      // if (this.order_id) {
+        // this.getOrder();
+      // }
     });
   }
 
@@ -56,24 +66,6 @@ export class OrderComponent implements OnInit {
     });
   }
 
-  private buildForm2() {
-    this.form2 = this.formBuilder.group({
-      id:[''],
-      username: [''],
-      email: [''],
-      full_name: [''],
-      is_superuser: [''],
-      phone: [''],
-      address_country: [''],
-      address_state: [''],
-      address_city: [''],
-      address_cp: [''],
-      address_line_1: [''],
-      address_line_2: [''],
-      created_at:[''],
-      updated_at:['']
-    });
-  }
 
   get productField() {
     return this.form.get('product_id');
@@ -81,7 +73,7 @@ export class OrderComponent implements OnInit {
 
   save() {
     if (this.form.valid) {
-      if (this.order_id) {
+      if (this.order_number) {
         this.updateOrder();
       }
     } else {
@@ -91,27 +83,28 @@ export class OrderComponent implements OnInit {
 
   private updateOrder() {
     const data = this.form.value;
-    this.ordersService.updateOrder(this.order_id, data)
+    this.ordersService.updateOrder(this.order_number, data)
     .subscribe(rta => {
       this.router.navigate(['/admin/orders']);
     });
   }
 
   getOrder() {
-    this.ordersService.getOrder(this.order_id)
+    this.ordersService.getOrder(this.order_number)
     .subscribe(data => {
+      console.log(data)
       this.user_id = data.data.user_id
-      this.product_id = data.data.product_id
       this.getUser();
       // this.getProduct();
-      this.form.patchValue(data.data);
+      // this.form.patchValue(data.data);
     });
   }
 
   private getUser() {
     this.usersService.getUser(this.user_id)
     .subscribe(data => {
-      this.form2.patchValue(data);
+      console.log(data);
+      // this.form2.patchValue(data);
     });
   }
 

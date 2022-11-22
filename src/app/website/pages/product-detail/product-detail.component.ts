@@ -32,7 +32,8 @@ export class ProductDetailComponent implements OnInit {
       category_id: 0,
       description: "",
       stock: 0
-    }
+    },
+    active: true
   };
 
   constructor(

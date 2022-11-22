@@ -3,11 +3,9 @@ import { Order } from 'src/app/models/order.model';
 import { OrdersService } from 'src/app/services/orders.service';
 import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
-import { ActivatedRoute, Router, Params} from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { CartsService } from 'src/app/services/carts.service';
 import { Cart } from 'src/app/models/cart.model';
-import { Product } from 'src/app/models/product.model';
-import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-order-detail',
@@ -18,6 +16,7 @@ export class OrderDetailComponent implements OnInit {
 
   user!: User;
   user_id!: number;
+  cart!: Cart;
   carts: Cart[] = [];
   total: number = 0;
   order!: Order
@@ -39,34 +38,27 @@ export class OrderDetailComponent implements OnInit {
     this.fechaF = this.fecha.toLocaleDateString()
     this.route.params.subscribe((params: Params) => {
       this.order_number = params['order'];
-      console.log(params['order'])
-      console.log(this.order_number)
 
       this.ordersService.getOrder(this.order_number)
-      .subscribe(data => {
+        .subscribe(data => {
+          console.log(data)
+          this.order = data[0]
+          console.log(this.order)
+          this.orders = data[0][this.order_number]
+          console.log(this.orders)
 
-        console.log(data)
-
-        this.order = data[0]
-        console.log(this.order)
-        console.log(this.order.user_id)
-        // console.log(data[0].'1291897')
-
-      //   this.orders = data.data["1"]
-      //   console.log(this.orders)
-      //   this.order = this.orders[0]
-      //   console.log(this.order)
-
-      //   this.orders.forEach(order => {
-      //     this.cartService.getUserCart(this.user_id).subscribe(data => {
-      //       this.carts = data.data;
-
-      //       this.carts.forEach(cart => {
-      //         this.total += cart.amount
-      //       })
-      //     })
-      //   })
-      })
+          this.orders.forEach(order => {
+            this.cartService.getCart(order.cart_id)
+              .subscribe(data => {
+                this.cart = data.data;
+                this.carts.push(this.cart)
+                console.log(this.carts)
+                this.carts.forEach(cart => {
+                  this.total += cart.amount
+                })
+              })
+          })
+        })
     })
   }
 
@@ -84,8 +76,8 @@ export class OrderDetailComponent implements OnInit {
       })
   }
 
-  backHome() {
-    this.router.navigate(['/home'])
+  goPayment() {
+    this.router.navigate(['/payment', this.order_number]);
   }
 
 }

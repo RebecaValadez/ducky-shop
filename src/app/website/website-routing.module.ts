@@ -14,6 +14,7 @@ import { AuthGuard } from '../guards/auth.guard';
 import { BuyDetailComponent } from './pages/buy-detail/buy-detail.component';
 import { ShippingInformationComponent } from './pages/shipping-information/shipping-information.component';
 import { PaymentMethodComponent } from './pages/payment-method/payment-method.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 const routes: Routes = [
   {
@@ -73,6 +74,11 @@ const routes: Routes = [
         path: 'order-detail/:order',
         canActivate: [AuthGuard],
         component: OrderDetailComponent
+      },
+      {
+        path: 'payment/:order',
+        canActivate: [AuthGuard],
+        component: PaymentComponent
       },
     ]
   },

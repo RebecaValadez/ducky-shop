@@ -22,7 +22,7 @@
     </thead>
 
     <tbody *ngFor="let product of products">
-        <tr class="text">
+        <tr *ngIf="product.active == true" class="text">
           <td>{{product.product.name}}</td>
           <td>${{product.product.price}}</td>
           <td>

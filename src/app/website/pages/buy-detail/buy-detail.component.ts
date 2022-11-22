@@ -7,8 +7,9 @@ import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
 import { Card } from 'src/app/models/card.model';
 import { CardsService } from 'src/app/services/cards.service';
-import { Payment } from 'src/app/models/payment.model';
 import { Router } from '@angular/router';
+import { Product } from 'src/app/models/product.model';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-buy-detail',
@@ -19,21 +20,26 @@ export class BuyDetailComponent implements OnInit {
   user!: User;
   user_id!: number;
   cards: Card[] = [];
+  carts: Cart[] = [];
   products: Cart[] = [];
+  product!: Product;
   total: number = 0;
   order: Order = {
     id: 0,
     order_number: 0,
     cart_id: 0,
-    user_id: 0
+    user_id: 0,
+    status: ""
   }
   order_number: number = 0
+  stock!: number;
 
   constructor(
     private ordersService: OrdersService,
     private usersService: UsersService,
     private cartsService: CartsService,
     private cardsService: CardsService,
+    private productsService: ProductsService,
     private router: Router
   ) { }
 
@@ -68,7 +74,13 @@ export class BuyDetailComponent implements OnInit {
   getCartUser() {
     this.cartsService.getUserCart(this.user_id)
       .subscribe(data => {
-        this.products = data.data
+        this.carts = data.data
+        this.carts.forEach(cart => {
+          if (cart.active == true){
+            this.products.push(cart)
+          }
+        })
+
         this.totalBuy()
       })
   }
@@ -87,20 +99,20 @@ export class BuyDetailComponent implements OnInit {
 
     this.products.forEach(cart => {
       this.order.cart_id = cart.id
-      console.log(cart.id)
-      console.log(this.order)
+      this.product = cart.product
+      this.stock = this.product.stock - cart.quantity
+      this.product.stock = this.stock
+      console.log(this.product.stock)
+      console.log(this.product)
+
+      this.productsService.updateProduct(this.product.id, this.product)
+      .subscribe(data => {})
+
       this.ordersService.createOrder(this.order)
       .subscribe(() => {
         console.log("se ha creado la orden")
        })
     });
-
-    var pay: Payment = {
-      order_number: order_number,
-      card_id: this.cards[0].id,
-      cards: this.cards[0].id,
-      amount: this.total
-    }
 
     this.router.navigate(['/order-detail', order_number]);
 

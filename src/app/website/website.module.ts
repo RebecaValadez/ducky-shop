@@ -19,6 +19,7 @@ import { ProductSearchComponent } from './pages/product-search/product-search.co
 import { BuyDetailComponent } from './pages/buy-detail/buy-detail.component';
 import { ShippingInformationComponent } from './pages/shipping-information/shipping-information.component';
 import { PaymentMethodComponent } from './pages/payment-method/payment-method.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { PaymentMethodComponent } from './pages/payment-method/payment-method.co
     BuyDetailComponent,
     ShippingInformationComponent,
     PaymentMethodComponent,
+    PaymentComponent,
   ],
   imports: [
     CommonModule,

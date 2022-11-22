@@ -53,7 +53,9 @@ export class MycartComponent implements OnInit {
 
   totalBuy(){
     this.products.forEach(product => {
-      this.total = this.total + product.amount
+      if(product.active == true){
+        this.total = this.total + product.amount
+      }
     });
   }
 

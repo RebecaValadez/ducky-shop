@@ -12,4 +12,5 @@ export interface Cart {
   product_price?: number;
   product_stock: number;
   product: Product
+  active: boolean
 }

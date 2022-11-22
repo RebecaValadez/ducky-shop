@@ -20,6 +20,10 @@ export class CartsService {
     return this.http.get<any>(`${this.apiUrl}/user-cart/${user_id}`, {headers: this.headers})
   }
 
+  getCart(id: number){
+    return this.http.get<any>(`${this.apiUrl}/carts/${id}`, {headers: this.headers})
+  }
+
   addToCart(data: any){
     return this.http.post(`${this.apiUrl}/carts`, data, {headers: this.headers});
   }
@@ -34,41 +38,41 @@ export class CartsService {
 
 //----------------------------------------------------------------------------------
 
-  addProduct(product:Cart){
-    if (localStorage.getItem("Cart") == null){
-      localStorage.setItem("Cart", JSON.stringify([]));
-    }
-    var cart = JSON.parse(localStorage.getItem("Cart") ?? '');
+  // addProduct(product:Cart){
+  //   if (localStorage.getItem("Cart") == null){
+  //     localStorage.setItem("Cart", JSON.stringify([]));
+  //   }
+  //   var cart = JSON.parse(localStorage.getItem("Cart") ?? '');
 
-    cart.push(product)
-    localStorage.setItem("Cart", JSON.stringify(cart));
-  }
+  //   cart.push(product)
+  //   localStorage.setItem("Cart", JSON.stringify(cart));
+  // }
 
-  clear(){
-    if (localStorage.getItem("Cart") != null){
-      localStorage.setItem("Cart", JSON.stringify([]));
-    }
-  }
+  // clear(){
+  //   if (localStorage.getItem("Cart") != null){
+  //     localStorage.setItem("Cart", JSON.stringify([]));
+  //   }
+  // }
 
-  removeProduct(product:Cart){
-    if (localStorage.getItem("Cart") == null){
-      localStorage.setItem("Cart", JSON.stringify([]));
-    }
-    var cart = JSON.parse(localStorage.getItem("Cart") ?? '');
+  // removeProduct(product:Cart){
+  //   if (localStorage.getItem("Cart") == null){
+  //     localStorage.setItem("Cart", JSON.stringify([]));
+  //   }
+  //   var cart = JSON.parse(localStorage.getItem("Cart") ?? '');
 
-    cart.remove(product);
-    localStorage.setItem("Cart", JSON.stringify(cart));
-  }
+  //   cart.remove(product);
+  //   localStorage.setItem("Cart", JSON.stringify(cart));
+  // }
 
-  getCart(){
-    if (localStorage.getItem("Cart") == null){
-      localStorage.setItem("Cart", JSON.stringify([]));
-    }
-    var cart = JSON.parse(localStorage.getItem("Cart") ?? '');
-    return cart;
-  }
+  // getCart(){
+  //   if (localStorage.getItem("Cart") == null){
+  //     localStorage.setItem("Cart", JSON.stringify([]));
+  //   }
+  //   var cart = JSON.parse(localStorage.getItem("Cart") ?? '');
+  //   return cart;
+  // }
 
-  buy(){
+  // buy(){
 
-  }
+  // }
 }
